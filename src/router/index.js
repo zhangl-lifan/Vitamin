@@ -1,10 +1,10 @@
 /*
- * @Descripttion: 
- * @version: 
+ * @Descripttion:
+ * @version:
  * @Author: sueRimn
- * @Date: 2019-10-14 11:00:00
+ * @Date: 2019-10-09 10:49:46
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-14 11:00:00
+ * @LastEditTime: 2019-10-14 13:52:25
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -63,11 +63,11 @@ export const constantRoutes = [
     component: () => import('@/views/login/index'),
     hidden: true
   },
-  // {
-  //   path: '/auth-redirect',
-  //   component: () => import('@/views/login/auth-redirect'),
-  //   hidden: true
-  // },
+  {
+    path: '/auth-redirect',
+    component: () => import('@/views/login/auth-redirect'),
+    hidden: true
+  },
   {
     path: '/404',
     component: () => import('@/views/error-page/404'),
@@ -197,7 +197,6 @@ export const asyncRoutes = [
   chartsRouter,
   nestedRouter,
   tableRouter,
-
   {
     path: '/example',
     component: Layout,
