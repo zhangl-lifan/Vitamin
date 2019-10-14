@@ -1,18 +1,35 @@
+<!--
+ * @Descripttion:
+ * @version:
+ * @Author: sueRimn
+ * @Date: 2019-10-14 11:00:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-14 19:38:53
+ -->
 <template>
   <div :class="{'has-logo':showLogo}">
+    <div class="layout-logo">
+      <img alt="logo" src="https://img.weitaming.com/weitaming/partner/icon/icon-wtm-logo.png!b">
+      <span>维他命商家后台</span>
+    </div>
     <logo v-if="showLogo" :collapse="isCollapse" />
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <el-menu
         :default-active="activeMenu"
         :collapse="isCollapse"
-        :background-color="variables.menuBg"
-        :text-color="variables.menuText"
+        background-color="white"
+        text-color="rgba(0,0,0,.65)"
         :unique-opened="false"
-        :active-text-color="variables.menuActiveText"
+        active-text-color="#3ec6b6"
         :collapse-transition="false"
         mode="vertical"
       >
-        <sidebar-item v-for="route in permission_routes" :key="route.path" :item="route" :base-path="route.path" />
+        <sidebar-item
+          v-for="route in permission_routes"
+          :key="route.path"
+          :item="route"
+          :base-path="route.path"
+        />
       </el-menu>
     </el-scrollbar>
   </div>
@@ -27,10 +44,7 @@ import variables from '@/styles/variables.scss'
 export default {
   components: { SidebarItem, Logo },
   computed: {
-    ...mapGetters([
-      'permission_routes',
-      'sidebar'
-    ]),
+    ...mapGetters(['permission_routes', 'sidebar']),
     activeMenu() {
       const route = this.$route
       const { meta, path } = route
@@ -52,3 +66,26 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+.layout-logo {
+  width: 100%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+}
+
+.layout-logo img {
+  width: 32px;
+  height: 32px;
+   margin-left: 32px;
+    margin-right: 20px;
+}
+
+.layout-logo span {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.65);
+}
+</style>

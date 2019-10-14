@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion:
+ * @version:
+ * @Author: sueRimn
+ * @Date: 2019-10-14 11:00:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-14 20:28:45
+ -->
 <template>
   <div style="padding: 0 15px;" @click="toggleClick">
     <svg
@@ -34,8 +42,8 @@ export default {
 .hamburger {
   display: inline-block;
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
+  width: 26px;
+  height: 26px;
 }
 
 .hamburger.is-active {
