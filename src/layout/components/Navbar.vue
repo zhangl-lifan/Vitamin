@@ -1,11 +1,3 @@
-<!--
- * @Descripttion:
- * @version:
- * @Author: sueRimn
- * @Date: 2019-10-14 11:00:00
- * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-15 09:03:34
- -->
 <template>
   <div class="navbar">
     <hamburger
@@ -14,7 +6,6 @@
       class="hamburger-container"
       @toggleClick="toggleSideBar"
     />
-
     <div class="right-menu">
       <div class="avatar-wrapper">
         <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">

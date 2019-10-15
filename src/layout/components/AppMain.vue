@@ -39,7 +39,7 @@ export default {
   overflow: hidden;
 }
 
-.fixed-header+.app-main {
+.fixed-header + .app-main {
   padding-top: 50px;
 }
 
@@ -50,7 +50,7 @@ export default {
     min-height: calc(100vh - 84px);
   }
 
-  .fixed-header+.app-main {
+  .fixed-header + .app-main {
     padding-top: 84px;
   }
 }
@@ -60,7 +60,8 @@ export default {
   }
 }
 
-.app-main{
+.app-main {
+  flex:1;
   width: 100%;
   height: 100%;
   padding:20px;

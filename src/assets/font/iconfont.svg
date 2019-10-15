@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="jinggao" unicode="&#58880;" d="M512 864C244.57142844 864 32 651.42857156 32 384s212.57142844-480 480-480 480 212.57142844 480 480-212.57142844 480-480 480zM570.514286 98.74285699999996H453.485714V215.771429h117.028572zM570.514286 266.97142899999994H453.485714V669.257143h117.028572z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>
