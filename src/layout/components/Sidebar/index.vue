@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-14 11:00:00
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-14 19:38:53
+ * @LastEditTime: 2019-10-15 08:39:50
  -->
 <template>
   <div :class="{'has-logo':showLogo}">
@@ -37,12 +37,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Logo from './Logo'
 import SidebarItem from './SidebarItem'
 import variables from '@/styles/variables.scss'
 
 export default {
-  components: { SidebarItem, Logo },
+  components: { SidebarItem },
   computed: {
     ...mapGetters(['permission_routes', 'sidebar']),
     activeMenu() {
