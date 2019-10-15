@@ -39,7 +39,7 @@ export default {
   overflow: hidden;
 }
 
-.fixed-header+.app-main {
+.fixed-header + .app-main {
   padding-top: 50px;
 }
 
@@ -49,7 +49,7 @@ export default {
     min-height: calc(100vh - 84px);
   }
 
-  .fixed-header+.app-main {
+  .fixed-header + .app-main {
     padding-top: 84px;
   }
 }
@@ -59,11 +59,17 @@ export default {
   }
 }
 
-.app-main{
+.app-main {
+  flex:1;
   width: 100%;
   height: 100%;
-  padding:20px;
-  // margin-top:20px;
-  background:#f8f8f9;
+  padding: 20px;
+  background: #f8f8f9;
+  // position: absolute;
+  // top: 80px;
+  // right: 0;
+  // border: 1px solid #006; /* 使用边框，区分内容*/
+  overflow-y: scroll; /*显示y轴滚动条*/
+  // overflow-x: hidden; /*隐藏x轴滚动条*/
 }
 </style>

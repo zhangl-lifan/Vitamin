@@ -4,7 +4,7 @@
       <h3>页面</h3>
     </div>
     <div class="card-contain">
-      <div class="btn-add">+</div>
+      <div class="btn-add" @click="cardAdd">+</div>
       <el-table :data="tableData" style="width: 100%">
         <el-table-column label="名称" width="500">
           <template slot-scope="scope">
@@ -30,20 +30,35 @@
         </el-table-column>
         <el-table-column label="操作" width="247">
           <template slot-scope="scope">
-            <el-button type="text" size="min" @click="handleClick(scope.row)">查看</el-button>
-            <el-button type="text" size="min">编辑</el-button>
+            <el-button type="text" size="min" @click="handleEdit(scope.row)">查看</el-button>
+            <el-popover
+              :ref="'popover-' + scope.row.key"
+              placement="top"
+              width="160"
+              trigger="manual"
+            >
+              <p style="text-align: center;margin: 15px 0px">
+                <span class="iconfont icon-jinggao:before" />
+                <span>确定删除吗？</span>
+              </p>
+              <div style="text-align: center; margin: 0">
+                <el-button size="mini" type="text" @click="pCancel(scope.row.key)">取消</el-button>
+                <el-button type="primary" size="mini" @click="pSubmit(scope.row)">确定</el-button>
+              </div>
+              <el-button slot="reference" type="text" size="min" @click="pOpen(scope.row.key)">删除</el-button>
+            </el-popover>
           </template>
         </el-table-column>
       </el-table>
       <div class="block">
+        <span class="demonstration">第1 - {{ total }}条, 共 {{ total }} 条</span>
         <el-pagination background layout="prev, pager, next" :total="total" />
-        <span class="demonstration">显示总数</span>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { pageList } from '@/api/vitamin/index.js'
+import { pageList, deleteList } from '@/api/vitamin/index.js'
 
 export default {
   data() {
@@ -51,7 +66,8 @@ export default {
       tableData: [],
       total: 0,
       page: 1,
-      page_size: 10
+      page_size: 10,
+      visible: false
     }
   },
   created() {
@@ -84,10 +100,32 @@ export default {
   },
   methods: {
     handleEdit(index, row) {
-      console.log(index, row)
+      this.$router.push('/cardAdd')
     },
-    handleDelete(index, row) {
-      console.log(index, row)
+    cardAdd() {
+      this.$router.push('/cardAdd')
+    },
+    pSubmit(row) {
+      console.log(row, 'row----')
+      deleteList({ id: row.key })
+      // .then(res => {
+      //   console.log(res.data);
+      //   if (res.data.code === 200) {
+      //     this.$message({
+      //       message: res.data.message,
+      //       type: "success"
+      //     });
+      //   }
+      // });
+    },
+    pCancel(id) {
+      this.pClose(id)
+    },
+    pClose(id) {
+      this.$refs[`popover-` + id].doClose()
+    },
+    pOpen(id) {
+      this.$refs[`popover-` + id].doShow()
     }
   }
 }
@@ -153,16 +191,18 @@ export default {
 .block {
   text-align: right;
   margin-top: 20px;
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 
-  .demonstration{
+  .demonstration {
     float: right;
-
+    font-weight: normal;
+    color: #666;
+    font-size: 14px;
   }
 
-  .el-pagination{
+  .el-pagination {
     float: right;
   }
 }

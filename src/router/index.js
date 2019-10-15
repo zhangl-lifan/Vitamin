@@ -41,17 +41,23 @@ export const constantRoutes = [{
             import('@/views/login/index'),
   hidden: true
 },
-// {
-//   path: '/auth-redirect',
-//   component: () => import('@/views/login/auth-redirect'),
-//   hidden: true
-// },
+{
+  path: '/auth-redirect',
+  component: () =>
+            import('@/views/login/auth-redirect'),
+  hidden: true
+},
 {
   path: '/404',
   component: () =>
             import('@/views/error-page/404'),
   hidden: true
 },
+// {
+//  path: '/404',
+//     component: () => import('@/views/errorPage/404'),
+//     hidden: true
+// },
 {
   path: '/401',
   component: () =>
@@ -81,7 +87,6 @@ export const constantRoutes = [{
     meta: { title: '概括', icon: 'documentation', affix: true }
   }]
 },
-
 {
   path: '/profile',
   component: Layout,
@@ -93,6 +98,15 @@ export const constantRoutes = [{
                 import('@/views/profile/index'),
     name: 'Profile',
     meta: { title: 'Profile', icon: 'user', noCache: true }
+  }]
+}, {
+  path: '/cardAdd',
+  component: Layout,
+  redirect: '/cardAdd/Add',
+  children: [{
+    path: 'Add',
+    component: () =>
+                import('@/views/cardAdd/index')
   }]
 }
 ]
