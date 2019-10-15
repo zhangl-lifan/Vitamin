@@ -1,4 +1,12 @@
-import { login, logout, getInfo } from '@/api/user'
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: sueRimn
+ * @Date: 2019-10-14 11:00:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-15 11:45:08
+ */
+import { login, logout, getInfo, getUserInfo } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 
@@ -7,7 +15,8 @@ const state = {
   name: '',
   avatar: '',
   introduction: '',
-  roles: []
+  roles: [],
+  userInfo: {}
 }
 
 const mutations = {
@@ -25,6 +34,9 @@ const mutations = {
   },
   SET_ROLES: (state, roles) => {
     state.roles = roles
+  },
+  SET_USER: (state, payload) => {
+    state.userInfo = payload
   }
 }
 
@@ -43,7 +55,16 @@ const actions = {
       })
     })
   },
-
+  async getUserData({ commit }) {
+    const result = await getUserInfo({
+      'x-org-id': getToken('org_id'),
+      'x-org-type': getToken('org_type'),
+      'x-user-id': getToken('userId'),
+      'Authorization': getToken('Authorization')
+    })
+    console.log(result.data)
+    commit('SET_USER', result.data)
+  },
   // get user info
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {

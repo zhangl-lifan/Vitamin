@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-15 08:42:53
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-15 08:51:44
+ * @LastEditTime: 2019-10-15 14:33:44
  -->
 <template>
   <section class="app-main">
@@ -63,13 +63,8 @@ export default {
   flex:1;
   width: 100%;
   height: 100%;
-  padding: 20px;
-  background: #f8f8f9;
-  // position: absolute;
-  // top: 80px;
-  // right: 0;
-  // border: 1px solid #006; /* 使用边框，区分内容*/
-  overflow-y: scroll; /*显示y轴滚动条*/
-  // overflow-x: hidden; /*隐藏x轴滚动条*/
+  padding:20px;
+  // margin-top:20px;
+  background:#fcfcfc;
 }
 </style>
