@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion:
+ * @version:
+ * @Author: sueRimn
+ * @Date: 2019-10-15 08:42:53
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-15 08:51:44
+ -->
 <template>
   <section class="app-main">
     <transition name="fade-transform" mode="out-in">
@@ -45,10 +53,6 @@ export default {
     padding-top: 84px;
   }
 }
-</style>
-
-<style lang="scss">
-// fix css style bug in open el-dialog
 .el-popup-parent--hidden {
   .fixed-header {
     padding-right: 15px;

@@ -2,9 +2,9 @@
  * @Descripttion:
  * @version:
  * @Author: sueRimn
- * @Date: 2019-10-14 11:00:00
+ * @Date: 2019-10-09 10:49:46
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-14 11:00:00
+ * @LastEditTime: 2019-10-14 19:09:33
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -67,7 +67,7 @@ export const constantRoutes = [{
     component: () =>
                 import('@/views/dashboard/index'),
     name: 'Home',
-    meta: { title: '首页', icon: 'dashboard', affix: true }
+    meta: { title: '首页', icon: 'home', affix: true }
   }]
 },
 {

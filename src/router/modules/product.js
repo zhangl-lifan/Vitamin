@@ -1,3 +1,11 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: sueRimn
+ * @Date: 2019-10-14 14:15:03
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-14 14:15:03
+ */
 /** When your routing table is too long, you can split it into small modules **/
 
 import Layout from '@/layout'
@@ -9,7 +17,7 @@ const ProductRouter = {
   name: 'commodity',
   meta: {
     title: '商品',
-    icon: 'table'
+    icon: 'product'
   },
   children: [{
     path: 'goods',

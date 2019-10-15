@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion:
+ * @version:
+ * @Author: sueRimn
+ * @Date: 2019-10-14 11:00:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-14 20:01:02
+ -->
 <template>
   <div v-if="!item.hidden" class="menu-wrapper">
     <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
@@ -93,3 +101,22 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  li.el-menu-item.submenu-title-noDropdown{
+    color: #3ec6b6;
+     font-size: 16px;
+  }
+  li.el-menu-item.is-active.submenu-title-noDropdown{
+    background-color:#fcfcfc !important;
+    font-size: 16px;
+  }
+  .el-submenu__title{
+    font-size: 16px;
+  }
+ li.el-menu-item{
+   font-size: 16px;
+ }
+#app .hideSidebar .main-container{
+  margin-left: 88px;
+}
+</style>

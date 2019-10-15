@@ -14,14 +14,14 @@ const StoreRouter = {
   children: [{
     path: 'StoreTable',
     component: () =>
-                import('@/views/table/dynamic-table/index'),
+                import('@/views/shop/shopmanagement'),
     name: 'DynamicTable',
     meta: { title: '店铺管理' }
   },
   {
     path: 'NavTable',
     component: () =>
-                import('@/views/table/drag-table'),
+                import('@/views/shop/shoppe'),
     name: 'DragTable',
     meta: { title: '专柜导航管理' }
   }
