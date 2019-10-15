@@ -1,10 +1,18 @@
 /*
+<<<<<<< HEAD
  * @Descripttion: 
  * @version: 
  * @Author: sueRimn
  * @Date: 2019-10-15 08:56:12
  * @LastEditors: sueRimn
  * @LastEditTime: 2019-10-15 08:56:12
+=======
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-14 14:35:15
+ * @LastEditTime: 2019-10-15 14:17:00
+ * @LastEditors: Please set LastEditors
+>>>>>>> 2c617e7d6ac7e75ea3b7631c7d0b006c499357bc
  */
 'use strict'
 const path = require('path')
@@ -66,6 +74,7 @@ module.exports = {
         },
         after: require('./mock/mock-server.js')
     },
+<<<<<<< HEAD
     configureWebpack: {
         // provide the app's title in webpack's name field, so that
         // it can be accessed in index.html to inject the correct title.
@@ -74,6 +83,23 @@ module.exports = {
             alias: {
                 '@': resolve('src')
             }
+=======
+    proxy: {
+      '/api':{
+        target:"https://betapartnerapi.weitaming.com",
+        changeOrigin:true,
+        pathRewrite:{
+            '^/api':''
+        }
+     },
+// change xxx-api/login => mock/login
+      // detail: https://cli.vuejs.org/config/#devserver-proxy
+      [process.env.VUE_APP_BASE_API]: {
+        target: `http://127.0.0.1:${port}/mock`,
+        changeOrigin: true,
+        pathRewrite: {
+          ['^' + process.env.VUE_APP_BASE_API]: ''
+>>>>>>> 2c617e7d6ac7e75ea3b7631c7d0b006c499357bc
         }
     },
     chainWebpack(config) {

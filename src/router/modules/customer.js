@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-14 14:15:03
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-14 14:15:03
+ * @LastEditTime: 2019-10-16 07:48:14
  */
 /** When your routing table is too long, you can split it into small modules **/
 
@@ -28,10 +28,9 @@ const CustmerRouter = {
   },
   {
     path: 'inventory',
-    component: () =>
-                import('@/views/table/drag-table'),
-    name: 'Inventory',
-    meta: { title: '库存管理' }
+    component: null,
+    name: 'Inventory'
+
   }
   ]
 }
