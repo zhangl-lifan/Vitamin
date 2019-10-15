@@ -62,7 +62,7 @@ export default {
 .app-main{
   width: 100%;
   height: 100%;
-  background: #e2e2e2;
+  background: #f3f3f3;
   padding: 25px;
 }
 </style>

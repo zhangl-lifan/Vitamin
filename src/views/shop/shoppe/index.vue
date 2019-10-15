@@ -5,26 +5,26 @@
     </div>
     <div class="from">
       <div class="top">
-          <p class="pname">店铺名:<el-input v-model="input" placeholder="请输入内容" style="width:280px" size="medium"></el-input></p>
+          <p class="pname">店铺名:<el-input v-model="input" placeholder="请输入店铺名称" style="width:280px" size="medium"></el-input></p>
           <p class="floor">楼层:
-              <el-select v-model="value" placeholder="请选择"  style="width:280px" size="medium">
-                <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value">
-                </el-option>
-              </el-select>
+                <el-select v-model="value" filterable placeholder="请选择" style="width:280px" size="medium">
+                      <el-option
+                        v-for="item in options"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value">
+                      </el-option>
+                    </el-select>
           </p> 
           <p class="floor">分类:
-               <el-select v-model="value" placeholder="请选择" style="width:280px" size="medium">
+              <el-select v-model="value" filterable placeholder="请选择" style="width:280px" size="medium">
                   <el-option
-                    v-for="item in options"
-                    :key="item.value"
-                    :label="item.label"
-                    :value="item.value">
+                      v-for="item in options"
+                      :key="item.value"
+                      :label="item.label"
+                      :value="item.value">
                   </el-option>
-                </el-select>
+              </el-select>
           </p> 
       </div>
       <div class="buttom">   
@@ -69,8 +69,6 @@
 </template>
 
 <script>
-import { floorList} from '@/api/shop'
-console.log(floorList)
 import Sortable from 'sortablejs'
 export default {
   name: 'DragTable',
@@ -121,11 +119,6 @@ export default {
         }]
     }
   },
-  created() {
-      floorList().then(response => {
-        console.log(response)
-      })
-  },
   
 }
 </script>
@@ -166,5 +159,4 @@ export default {
   .from .buttom p{
     margin: 10px;
   }
- 
 </style>
