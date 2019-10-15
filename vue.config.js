@@ -1,3 +1,11 @@
+/*
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-10-15 08:56:12
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-15 08:56:12
+ */
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')

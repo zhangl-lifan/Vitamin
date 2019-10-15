@@ -1,9 +1,17 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: sueRimn
+ * @Date: 2019-10-14 11:00:00
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-14 11:00:00
+ */
 import Cookies from 'js-cookie'
 
 const TokenKey = 'Admin-Token'
 
-export function getToken() {
-  return Cookies.get(TokenKey)
+export function getToken(params = TokenKey) {
+  return Cookies.get(params)
 }
 
 export function setToken(token) {

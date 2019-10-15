@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-15 08:42:53
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-15 08:51:44
+ * @LastEditTime: 2019-10-15 14:33:44
  -->
 <template>
   <section class="app-main">
@@ -64,6 +64,6 @@ export default {
   height: 100%;
   padding:20px;
   // margin-top:20px;
-  background:#f8f8f9;
+  background:#fcfcfc;
 }
 </style>
