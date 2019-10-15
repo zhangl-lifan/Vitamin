@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-15 08:42:53
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-15 14:33:44
+ * @LastEditTime: 2019-10-15 15:04:46
  -->
 <template>
   <section class="app-main">
@@ -44,6 +44,7 @@ export default {
 }
 
 .hasTagsView {
+
   .app-main {
     /* 84 = navbar + tags-view = 50 + 34 */
     min-height: calc(100vh - 84px);

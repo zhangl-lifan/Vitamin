@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-14 11:00:00
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-15 14:40:25
+ * @LastEditTime: 2019-10-15 15:01:53
  -->
 <template>
   <div id="tags-view-container" class="tags-view-container">
@@ -193,7 +193,7 @@ export default {
   height: auto;
   width: 100%;
   background: #fcfcfc;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
+  // box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
   .tags-view-wrapper {
     .tags-view-item {
       display: inline-block;
