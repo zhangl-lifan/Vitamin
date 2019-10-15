@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-14 14:35:15
+ * @LastEditTime: 2019-10-14 19:38:57
+ * @LastEditors: Please set LastEditors
+ */
 /** When your routing table is too long, you can split it into small modules **/
 
 import Layout from '@/layout'
@@ -20,10 +27,9 @@ const CustmerRouter = {
   },
   {
     path: 'inventory',
-    component: () =>
-                import('@/views/table/drag-table'),
-    name: 'Inventory',
-    meta: { title: '库存管理' }
+    component: null,
+    name: 'Inventory'
+
   }
   ]
 }

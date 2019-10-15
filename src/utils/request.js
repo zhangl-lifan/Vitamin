@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-14 14:35:15
+ * @LastEditTime: 2019-10-15 14:54:20
+ * @LastEditors: Please set LastEditors
+ */
 import axios from 'axios'
 import { MessageBox, Message } from 'element-ui'
 import store from '@/store'
@@ -5,9 +12,16 @@ import { getToken } from '@/utils/auth'
 
 // create an axios instance
 const service = axios.create({
+
   baseURL: process.env.VUE_APP_BASE_API, // url = base url + request url
   // withCredentials: true, // send cookies when cross-domain requests
-  timeout: 5000 // request timeout
+  timeout: 5000, // request timeout
+  headers: {
+    'x-org-id': 61500,
+    'x-org-type': 5,
+    'x-user-id': 963245015,
+    Authorization: 'Bearer DgZcRu7p9X2bkMrTseNpc3Wa2Df00ovN'
+  }
 })
 
 // request interceptor
@@ -47,6 +61,9 @@ service.interceptors.response.use(
 
     // if the custom code is not 20000, it is judged as an error.
     if (res.code !== 20000) {
+      if (res.code === 200) {
+        return res.data
+      }
       Message({
         message: res.message || 'Error',
         type: 'error',

@@ -1,3 +1,10 @@
+/*
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-14 14:35:15
+ * @LastEditTime: 2019-10-15 14:17:00
+ * @LastEditors: Please set LastEditors
+ */
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
@@ -37,7 +44,14 @@ module.exports = {
       errors: true
     },
     proxy: {
-      // change xxx-api/login => mock/login
+      '/api':{
+        target:"https://betapartnerapi.weitaming.com",
+        changeOrigin:true,
+        pathRewrite:{
+            '^/api':''
+        }
+     },
+// change xxx-api/login => mock/login
       // detail: https://cli.vuejs.org/config/#devserver-proxy
       [process.env.VUE_APP_BASE_API]: {
         target: `http://127.0.0.1:${port}/mock`,
