@@ -1,3 +1,11 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: sueRimn
+ * @Date: 2019-10-15 08:42:53
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-15 08:49:10
+ */
 import Vue from 'vue'
 
 import Cookies from 'js-cookie'
