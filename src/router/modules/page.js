@@ -5,7 +5,7 @@ import Layout from '@/layout'
 const PageRouter = {
   path: '/page',
   component: Layout,
-  redirect: '/table/complex-table',
+  redirect: '/page/pageList',
   name: 'Page',
   meta: {
     title: '页面',
@@ -14,16 +14,14 @@ const PageRouter = {
   children: [{
     path: 'pageList',
     component: () =>
-                import('@/views/table/dynamic-table/index'),
-    name: 'DynamicTable',
+                import('@/views/page/index.vue'),
+    name: 'pageList',
     meta: { title: '页面管理' }
   },
   {
     path: 'drag-table',
-    component: () =>
-                import('@/views/table/drag-table'),
-    name: 'DragTable',
-    meta: { title: '专柜导航管理' }
+    component: null
+
   }
   ]
 }
