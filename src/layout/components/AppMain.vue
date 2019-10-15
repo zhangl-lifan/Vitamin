@@ -54,4 +54,15 @@ export default {
     padding-right: 15px;
   }
 }
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.app-main{
+  width: 100%;
+  height: 100%;
+  background: #e2e2e2;
+  padding: 25px;
+}
 </style>
