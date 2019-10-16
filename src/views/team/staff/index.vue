@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-15 15:08:41
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-15 20:02:46
+ * @LastEditTime: 2019-10-17 07:54:01
  -->
 <template>
   <div class="tabs">
@@ -14,7 +14,16 @@
 <script>
 import StaffModule from '@/components/Tabs/staffM'
 export default {
-  components: { StaffModule }
+  components: { StaffModule },
+  mounted() {
+    this.initGetdata()
+  },
+  methods: {
+    initGetdata() {
+      this.$store.dispatch('user/getStoreS', { type: 1 })
+      this.$store.dispatch('user/getAdministrators')
+    }
+  }
 }
 </script>
 <style>

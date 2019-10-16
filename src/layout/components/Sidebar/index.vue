@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-14 11:00:00
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-15 08:39:50
+ * @LastEditTime: 2019-10-16 20:33:58
  -->
 <template>
   <div :class="{'has-logo':showLogo}">
@@ -85,5 +85,6 @@ export default {
   font-size: 18px;
   font-weight: 600;
   color: rgba(0, 0, 0, 0.65);
+  overflow: hidden;
 }
 </style>

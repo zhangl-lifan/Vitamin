@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-15 08:42:53
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-15 15:04:46
+ * @LastEditTime: 2019-10-16 19:30:23
  -->
 <template>
   <section class="app-main">
@@ -36,7 +36,6 @@ export default {
   min-height: calc(100vh - 50px);
   width: 100%;
   position: relative;
-  overflow: hidden;
 }
 
 .fixed-header + .app-main {

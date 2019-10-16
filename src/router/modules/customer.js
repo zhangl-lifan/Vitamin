@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-14 14:15:03
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-16 07:48:14
+ * @LastEditTime: 2019-10-16 08:32:38
  */
 /** When your routing table is too long, you can split it into small modules **/
 
@@ -22,7 +22,7 @@ const CustmerRouter = {
   children: [{
     path: 'cumerMeage',
     component: () =>
-                import('@/views/table/dynamic-table/index'),
+      import('@/views/table/dynamic-table/index'),
     name: 'cumerMeage',
     meta: { title: '顾客管理' }
   },
@@ -30,7 +30,6 @@ const CustmerRouter = {
     path: 'inventory',
     component: null,
     name: 'Inventory'
-
   }
   ]
 }

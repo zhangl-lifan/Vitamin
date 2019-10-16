@@ -1,9 +1,17 @@
+<!--
+ * @Descripttion:
+ * @version:
+ * @Author: sueRimn
+ * @Date: 2019-10-16 07:51:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-16 19:32:03
+ -->
 <template>
   <div :class="classObj" class="app-wrapper">
     <div v-if="device==='mobile'&&sidebar.opened" class="drawer-bg" @click="handleClickOutside" />
     <sidebar class="sidebar-container" />
     <div :class="{hasTagsView:needTagsView}" class="main-container">
-      <div :class="{'fixed-header':fixedHeader}">
+      <div :class="{'fixed-header':fixedHeader}" class="navbarPar">
         <navbar />
         <tags-view v-if="needTagsView" />
       </div>
@@ -60,16 +68,25 @@ export default {
 <style lang="scss" scoped>
 @import "~@/styles/mixin.scss";
 @import "~@/styles/variables.scss";
-
 .app-wrapper {
   @include clearfix;
   position: relative;
   height: 100%;
   width: 100%;
-
-  &.mobile.openSidebar {
-    position: fixed;
-    top: 0;
+  .navbarPar {
+    width: 100%;
+    position: relative;
+    .navbar {
+      height: 50px;
+      overflow: hidden;
+      position: fixed;
+      top: 0;
+      width: 85%;
+      z-index: 88;
+      // margin-bottom: 50px;
+      background: #fff;
+      box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+    }
   }
 }
 
@@ -77,7 +94,7 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  border-left:1px solid #ccc;
+  border-left: 1px solid #ccc;
 }
 
 .drawer-bg {
@@ -97,7 +114,6 @@ export default {
   z-index: 9;
   width: calc(100% - #{$sideBarWidth});
   transition: width 0.28s;
-
 }
 
 .hideSidebar .fixed-header {

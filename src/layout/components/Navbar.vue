@@ -1,3 +1,11 @@
+<!--
+ * @Descripttion:
+ * @version:
+ * @Author: sueRimn
+ * @Date: 2019-10-16 07:51:43
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-16 19:01:03
+ -->
 <template>
   <div class="navbar">
     <hamburger
@@ -39,13 +47,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.navbar {
-  height: 50px;
-  overflow: hidden;
-  position: relative;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-
   .hamburger-container {
     line-height: 46px;
     height: 100%;
@@ -76,7 +77,7 @@ export default {
       margin-right: 30px;
     }
   }
-}
+
   img.user-avatar {
           width: 17px;
           height: 24px;

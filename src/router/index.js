@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-09 10:49:46
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-14 19:09:33
+ * @LastEditTime: 2019-10-16 08:30:31
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -116,7 +116,6 @@ export const constantRoutes = [{
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
-
   StoreRouter,
   PageRouter,
   OrderRouter,

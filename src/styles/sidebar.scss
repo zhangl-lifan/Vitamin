@@ -21,7 +21,6 @@
     bottom: 0;
     left: 0;
     z-index: 1001;
-    overflow: hidden;
 
     // reset element-ui css
     .horizontal-collapse-transition {
@@ -29,7 +28,7 @@
     }
 
     .scrollbar-wrapper {
-      overflow-x: hidden !important;
+      overflow-x: auto !important;
     }
 
     .el-scrollbar__bar.is-vertical {

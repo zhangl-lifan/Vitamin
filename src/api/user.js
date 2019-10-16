@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-14 11:00:00
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-15 11:42:12
+ * @LastEditTime: 2019-10-16 10:01:06
  */
 import request from '@/utils/request'
 
@@ -32,7 +32,6 @@ export function logout() {
 }
 
 export function getUserInfo(params) {
-  console.log(params)
   return request({
     url: '/user/user-info',
     method: 'get',
@@ -41,5 +40,26 @@ export function getUserInfo(params) {
     headers: {
       ...params
     }
+  })
+}
+
+export function getAdministratorList() {
+  return request({
+    url: '/user/list',
+    method: 'post',
+    baseURL: '/api',
+    params: {
+      type: '1',
+      page: '1',
+      status: '0,1'
+    }
+  })
+}
+export function getStoreList(params) {
+  return request({
+    url: '/user/list-sreach',
+    method: 'post',
+    baseURL: '/api',
+    params
   })
 }

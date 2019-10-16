@@ -2,13 +2,28 @@
  * @Descripttion:
  * @version:
  * @Author: sueRimn
- * @Date: 2019-10-15 15:08:34
+ * @Date: 2019-10-15 15:08:41
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-15 18:51:13
+ * @LastEditTime: 2019-10-16 09:14:14
  -->
 <template>
-  <div />
+  <div class="tabs">
+    <StaffModule />
+  </div>
 </template>
 <script>
-export default {}
+import StaffModule from '@/components/Tabs/staffM'
+export default {
+  components: { StaffModule }
+}
 </script>
+<style>
+.tabs {
+  width: 98%;
+  height: 73px;
+  margin: 0 auto;
+  position: relative;
+  bottom: 20px;
+  background-color: #fff;
+}
+</style>
