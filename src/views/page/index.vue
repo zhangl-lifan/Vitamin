@@ -72,7 +72,7 @@ export default {
   },
   created() {
     pageList({ page: this.page, page_size: this.page_size }).then(res => {
-      // console.log(res.data.list, res.data.total);
+      // console.log(res.list, res.total);
       this.total = res.data.total
       this.tableData = res.data.list.map(item => {
         return {
@@ -109,7 +109,7 @@ export default {
       console.log(row, 'row----')
       deleteList({ id: row.key })
       // .then(res => {
-      //   console.log(res.data);
+      //   console.log(res);
       //   if (res.data.code === 200) {
       //     this.$message({
       //       message: res.data.message,

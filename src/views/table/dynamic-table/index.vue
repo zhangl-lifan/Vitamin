@@ -241,8 +241,8 @@ export default {
   },
   mounted() {
     member({ type: 1, page: 1 }).then(res => {
-      this.tableData2 = res.list
-      this.totalCount = res.pagination.totalCount
+      this.tableData2 = res.data.list
+      this.totalCount = res.data.pagination.totalCount
       this.min = 1
       this.max = 10
     })
@@ -268,8 +268,8 @@ export default {
       }
       if (arr.length === 0) {
         member({ type: 1, page: val }).then(res => {
-          this.tableData2 = res.list
-          this.totalCount = res.pagination.totalCount
+          this.tableData2 = res.data.list
+          this.totalCount = res.data.pagination.totalCount
         })
       } else {
         const obj = { type: this.ind + 1, page: val }
@@ -288,6 +288,7 @@ export default {
           }
         }
         member(obj).then(res => {
+          console.log(res, 'res--------')
           this.tableData2 = res.list
           this.totalCount = res.pagination.totalCount
           if (this.totalCount === 0) {
@@ -311,8 +312,8 @@ export default {
       }
       if (arr.length === 0) {
         member({ type: this.ind + 1, page: 1 }).then(res => {
-          this.tableData2 = res.list
-          this.totalCount = res.pagination.totalCount
+          this.tableData2 = res.data.list
+          this.totalCount = res.data.pagination.totalCount
         })
         return
       }
@@ -332,8 +333,8 @@ export default {
         }
       }
       member(obj).then(res => {
-        this.tableData2 = res.list
-        this.totalCount = res.pagination.totalCount
+        this.tableData2 = res.data.list
+        this.totalCount = res.data.pagination.totalCount
         this.min = this.totalCount < 10 ? 1 : this.min
         this.max = this.totalCount < 10 ? 10 : this.max
       })

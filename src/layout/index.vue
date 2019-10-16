@@ -77,7 +77,8 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
-  border-left:1px solid #ccc;
+  border-left: 1px solid #ccc;
+  overflow: hidden;
 }
 
 .drawer-bg {
@@ -91,14 +92,33 @@ export default {
 }
 
 .main-container .fixed-header {
+  width: 100%;
+  height: 100%;
   position: fixed;
   top: 0;
-  right: 0;
   z-index: 9;
   width: calc(100% - #{$sideBarWidth});
   transition: width 0.28s;
-
 }
+
+.fixed-header {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  width: calc(100% - #{$sideBarWidth});
+  transition: width 0.28s;
+}
+
+// .titleBox-Content {
+//   width: 100%;
+//   position: fixed;
+//   top: 0;
+//   z-index: 9;
+//   width: calc(100% - #{$sideBarWidth});
+//   transition: width 0.28s;
+// }
 
 .hideSidebar .fixed-header {
   width: calc(100% - 54px);
