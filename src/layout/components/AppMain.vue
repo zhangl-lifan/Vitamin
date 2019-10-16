@@ -60,11 +60,15 @@ export default {
 }
 
 .app-main {
-  flex:1;
-  width: 100%;
+  flex: 1;
+  // width: 100%;
   height: 100%;
-  padding:20px;
-  // margin-top:20px;
-  background:#fcfcfc;
+  padding: 20px;
+  background: #fcfcfc;
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  overflow-y: scroll; /*显示y轴滚动条*/
+  // overflow-x: hidden; /*隐藏x轴滚动条*/
 }
 </style>

@@ -77,15 +77,15 @@ export default {
     }
   }
 }
-  img.user-avatar {
-          width: 17px;
-          height: 24px;
-          margin-top: 12px;
-        }
-        span.nickName{
-          color: rgba(0,0,0,.65);
-          position: relative;
-          bottom: 6px;
-          margin-left: 5px;
-        }
+img.user-avatar {
+  width: 17px;
+  height: 24px;
+  margin-top: 12px;
+}
+span.nickName {
+  color: rgba(0, 0, 0, 0.65);
+  position: relative;
+  bottom: 6px;
+  margin-left: 5px;
+}
 </style>
