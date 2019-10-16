@@ -28,10 +28,9 @@ const CustmerRouter = {
   },
   {
     path: 'inventory',
-    component: () =>
-                import('@/views/table/drag-table'),
-    name: 'Inventory',
-    meta: { title: '库存管理' }
+    component: null,
+    name: 'Inventory'
+
   }
   ]
 }
