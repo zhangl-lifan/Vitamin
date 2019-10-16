@@ -20,7 +20,7 @@ import path from 'path'
 // import Title from '@/components/Head/index.vue'
 
 export default {
-  // components: { Title },
+  components: { },
   data() {
     return {
       visible: false,

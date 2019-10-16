@@ -186,7 +186,7 @@ export default {
         return acc
       }, {})
     }
-    // afterQRScan() {
+    // afterQRScan(e) {
     //   if (e.key === 'x-admin-oauth-code') {
     //     const code = getQueryObject(e.newValue)
     //     const codeMap = {

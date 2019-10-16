@@ -1,18 +1,6 @@
 # Vitamin
 Vitamin
 
-<!-- "Authorization=Bearer 2zVDESjL5XIAk9FjmLmBMipSw7w0Qnb6; 
- org_id=61500;
- userId=909445362; 
- org_type=5; 
- avatar=https://img.weitaming.com/test/base_user/avatar/20180912/4ba047689c360d2ff846332892edfd05.jpg; userName=lifang; 
- roleType=3; 
- menuList=[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]; 
- logo=https://img.weitaming.com/test/vm_mall/logo/20191010/2050ba08f6a773eb996f104dec6cb8a8.jpg; 
- name=测试国芳百货广场店; 
- mallId=61500; 
- alias=betalzgf" -->
-
  const cookie = "Authorization=Bearer DgZcRu7p9X2bkMrTseNpc3Wa2Df00ovN; org_id=61500; userId=963245015; org_type=5; avatar=https://img.weitaming.com/test/base_user/avatar/20180912/4ba047689c360d2ff846332892edfd05.jpg; userName=方超管; roleType=3; logo=https://img.weitaming.com/test/vm_mall/logo/20191010/2050ba08f6a773eb996f104dec6cb8a8.jpg; name=测试国芳百货广场店; mallId=61500; alias=betalzgf; menuList=[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object],[object Object]";cookie.split(';').forEach(item=>document.cookie = item+';');
 
  侧边栏：https://betapartnerapi.weitaming.com/privilege/get-privilege-set
