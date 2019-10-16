@@ -32,6 +32,7 @@
           <template slot-scope="scope">
             <el-button type="text" size="min" @click="handleEdit(scope.row)">查看</el-button>
             <el-popover
+              v-if="scope.row.status===0"
               :ref="'popover-' + scope.row.key"
               placement="top"
               width="160"
@@ -117,6 +118,7 @@ export default {
       //     });
       //   }
       // });
+      this.pClose(row.key)
     },
     pCancel(id) {
       this.pClose(id)

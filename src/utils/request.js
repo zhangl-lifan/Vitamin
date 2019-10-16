@@ -13,7 +13,8 @@ const service = axios.create({
     'Authorization': 'Bearer DgZcRu7p9X2bkMrTseNpc3Wa2Df00ovN',
     'x-org-id': 61500,
     'x-org-type': 5,
-    'x-user-id': 963245015
+    'x-user-id': 963245015,
+    'Content-Type': 'multipart/form-data'
   }
 })
 

@@ -11,16 +11,16 @@
     <el-breadcrumb separator-class="el-icon-arrow-right">
       <el-breadcrumb-item v-for="item in visitedViews" :key="item.path">{{ item.title }}</el-breadcrumb-item>
     </el-breadcrumb>
-    <Title :title="visitedViews[visitedViews.length-1].title||'首页'" />
+    <!-- <Title :title="visitedViews[visitedViews.length-1].title||'首页'" /> -->
   </div>
 </template>
 
 <script>
 import path from 'path'
-import Title from '@/components/Head/index.vue'
+// import Title from '@/components/Head/index.vue'
 
 export default {
-  components: { Title },
+  // components: { Title },
   data() {
     return {
       visible: false,
