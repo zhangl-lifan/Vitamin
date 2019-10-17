@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-16 07:51:43
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-16 19:32:03
+ * @LastEditTime: 2019-10-17 09:19:12
  -->
 <template>
   <div :class="classObj" class="app-wrapper">
@@ -107,14 +107,34 @@ export default {
   z-index: 999;
 }
 
-.main-container .fixed-header {
+// .main-container .fixed-header {
+//   width: 100%;
+//   height: 100%;
+//   position: fixed;
+//   top: 0;
+//   z-index: 9;
+//   width: calc(100% - #{$sideBarWidth});
+//   transition: width 0.28s;
+// }
+
+.fixed-header {
+  width: 100%;
+  height: 100%;
   position: fixed;
   top: 0;
-  right: 0;
   z-index: 9;
   width: calc(100% - #{$sideBarWidth});
   transition: width 0.28s;
 }
+
+// .titleBox-Content {
+//   width: 100%;
+//   position: fixed;
+//   top: 0;
+//   z-index: 9;
+//   width: calc(100% - #{$sideBarWidth});
+//   transition: width 0.28s;
+// }
 
 .hideSidebar .fixed-header {
   width: calc(100% - 54px);

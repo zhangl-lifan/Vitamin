@@ -32,6 +32,7 @@
           <template slot-scope="scope">
             <el-button type="text" size="min" @click="handleEdit(scope.row)">查看</el-button>
             <el-popover
+              v-if="scope.row.status===0"
               :ref="'popover-' + scope.row.key"
               placement="top"
               width="160"
@@ -72,7 +73,7 @@ export default {
   },
   created() {
     pageList({ page: this.page, page_size: this.page_size }).then(res => {
-      // console.log(res.data.list, res.data.total);
+      // console.log(res.list, res.total);
       this.total = res.data.total
       this.tableData = res.data.list.map(item => {
         return {
@@ -109,7 +110,7 @@ export default {
       console.log(row, 'row----')
       deleteList({ id: row.key })
       // .then(res => {
-      //   console.log(res.data);
+      //   console.log(res);
       //   if (res.data.code === 200) {
       //     this.$message({
       //       message: res.data.message,
@@ -117,6 +118,7 @@ export default {
       //     });
       //   }
       // });
+      this.pClose(row.key)
     },
     pCancel(id) {
       this.pClose(id)

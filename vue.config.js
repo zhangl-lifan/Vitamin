@@ -1,10 +1,25 @@
 /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 1d299d4f3d03fe76d0621e6a0712bcf7e6d8d4c2
  * @Descripttion: 
  * @version: 
  * @Author: sueRimn
  * @Date: 2019-10-15 08:56:12
  * @LastEditors: sueRimn
+<<<<<<< HEAD
  * @LastEditTime: 2019-10-17 08:31:12
+=======
+ * @LastEditTime: 2019-10-15 08:56:12
+=======
+ * @Description: In User Settings Edit
+ * @Author: your name
+ * @Date: 2019-10-14 14:35:15
+ * @LastEditTime: 2019-10-15 14:17:00
+ * @LastEditors: Please set LastEditors
+>>>>>>> 5b1304060ddfcd5fcde7753e91f54fef88f93f8d
+>>>>>>> 1d299d4f3d03fe76d0621e6a0712bcf7e6d8d4c2
  */
 'use strict'
 const path = require('path')

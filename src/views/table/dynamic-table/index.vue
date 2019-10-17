@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-14 14:35:15
- * @LastEditTime: 2019-10-15 15:09:49
+ * @LastEditTime: 2019-10-16 14:52:41
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -23,8 +23,10 @@
           <!-- 下拉选择 -->
           <el-form-item v-else-if="item.type===&quot;select&quot;" :label="item.name">
             <el-select v-model="form[item.ename]" placeholder="请选择">
-              <el-option label="区域一" value="shanghai" />
-              <el-option label="区域二" value="beijing" />
+              <!-- <el-option label="区域一" value="shanghai" />
+              <el-option label="区域二" value="beijing" /> -->
+
+              <el-option v-for="(i,items) in searchlist" :key="items" :label="searchlist[items]" :value="items" />
             </el-select>
           </el-form-item>
 
@@ -49,8 +51,8 @@
               v-model="form[item.ename]"
               type="daterange"
               range-separator="至"
-              start-placeholder="开始日期"
-              end-placeholder="结束日期"
+              start-placeholder="开始时间"
+              end-placeholder="结束时间"
             />
           </div>
 
@@ -58,15 +60,15 @@
       </div>
 
       <div v-show="ind===1" class="lastform">
-        <el-form v-for="(item,index) in list" ref="form" :key="index" :model="form" label-width="80px">
+        <el-form v-for="(item,index) in listlast" ref="form" :key="index" :model="form" label-width="80px">
           <el-form-item v-if="item.type===&quot;input&quot;" :label="item.name">
             <el-input v-model="form[item.ename]" />
           </el-form-item>
         </el-form>
       </div>
       <div class="buttons">
-        <el-button size="medium">重置</el-button>
-        <el-button type="primary">查询</el-button>
+        <el-button size="medium" @click="()=>clear()">重置</el-button>
+        <el-button type="primary" @click="()=>search()">查询</el-button>
       </div>
     </div>
 
@@ -122,10 +124,19 @@
             width="100"
           />
           <el-table-column
-            props=""
+            fixed="right"
             label="操作"
             width="100"
-          />
+          >
+            <template slot-scope="scope">
+              <el-button type="text" size="small" @click="handleClick(scope.row)">查看</el-button>
+
+            </template>
+          </el-table-column>
+          <!-- <template slot-scope="scope">
+        <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+
+      </template> -->
         </el-table>
       </div>
 
@@ -137,7 +148,7 @@
           :current-page.sync="currentPage1"
           :page-size="10"
           layout="total, prev, pager, next"
-          :total="100"
+          :total="totalCount"
           @current-change="handleCurrentChange"
         />
       </div>
@@ -148,34 +159,37 @@
 </template>
 
 <script>
-import { member } from '@/api/customer'
+import { member, searchset } from '@/api/customer'
 
 export default {
   name: 'DynamicTable',
   data() {
     return {
       ind: 0,
-      min: 1,
-      max: 10,
+      min: 0,
+      max: 0,
       tableData2: [],
+      searchlist: {},
       form: {
         name: '',
-        phone: '',
-        cname: '',
-        card: '',
-        grade: '',
-        numbermin: '',
-        numbermax: '',
-        guestmin: '',
-        guestmax: '',
-        pay: '',
-        client: ''
+        mobile: '',
+        nickname: '',
+        cid: '',
+        grade_code: '',
+        buy_times_min: '',
+        buy_times_max: '',
+        price_min: '',
+        price_max: '',
+        lately_consume_time_start: '',
+        lately_consume_time_end: '',
+        first_consume_time_start: '',
+        first_consume_time_end: ''
       },
       list: [
         {
           type: 'input',
           name: '手机号',
-          ename: 'phone'
+          ename: 'mobile'
         }, {
           type: 'input',
           name: '名字',
@@ -183,65 +197,149 @@ export default {
         }, {
           type: 'input',
           name: '昵称',
-          ename: 'cname'
+          ename: 'nickname'
         }, {
           type: 'input',
           name: '会员卡号',
-          ename: 'card'
+          ename: 'cid'
         }, {
           type: 'select',
           name: '会员等级',
-          ename: 'grade'
+          ename: 'grade_code'
         }, {
           type: 'num',
           name: '总购买次数',
-          ename: 'number'
+          ename: 'buy_times_'
         }, {
           type: 'num',
           name: '客价数',
-          ename: 'guest'
+          ename: 'price_'
         }, {
           type: 'date',
           name: '最近消费时间',
-          ename: 'pay'
+          ename: 'lately_consume_time_'
         }, {
           type: 'date',
           name: '成为有效顾客',
-          ename: 'client'
+          ename: 'first_consume_time_'
         }
       ],
       listlast: [
         {
           type: 'input',
           name: '手机号',
-          ename: 'phone'
+          ename: 'mobile'
         }, {
           type: 'input',
           name: '会员卡',
-          ename: 'card'
+          ename: 'cid'
         }
       ],
-      currentPage1: 1
+      currentPage1: 1,
+      totalCount: 0
     }
   },
   mounted() {
     member({ type: 1, page: 1 }).then(res => {
-      this.tableData2 = res.list
+      this.tableData2 = res.data.list
+      this.totalCount = res.data.pagination.totalCount
+      this.min = 1
+      this.max = 10
+    })
+    searchset().then(res => {
+      this.searchlist = res.grade_level
     })
   },
   methods: {
     change(num) {
       this.ind = num
     },
+    handleClick(row) {
+      console.log('row', row)
+    },
     handleCurrentChange(val) {
       this.min = (val - 1) * 10 + 1
       this.max = val * 10
-      member({ type: 1, page: val }).then(res => {
-        this.tableData2 = res.list
+      const arr = []
+      for (const i in this.form) {
+        if (this.form[i]) {
+          arr.push(i)
+        }
+      }
+      if (arr.length === 0) {
+        member({ type: 1, page: val }).then(res => {
+          this.tableData2 = res.data.list
+          this.totalCount = res.data.pagination.totalCount
+        })
+      } else {
+        const obj = { type: this.ind + 1, page: val }
+        arr.map(item => {
+          obj[item] = this.form[item]
+        })
+        for (const i in obj) {
+          if (typeof (obj[i]) === 'object') {
+            if (obj[i][0].getTime() > obj[i][1].getTime()) {
+              obj[i + 'max'] = new Date(obj[i][0].getTime()).toLocaleDateString()
+              obj[i + 'min'] = new Date(obj[i][1].getTime()).toLocaleDateString()
+            } else {
+              obj[i + 'max'] = new Date(obj[i][1].getTime()).toLocaleDateString()
+              obj[i + 'min'] = new Date(obj[i][0].getTime()).toLocaleDateString()
+            }
+          }
+        }
+        member(obj).then(res => {
+          console.log(res, 'res--------')
+          this.tableData2 = res.list
+          this.totalCount = res.pagination.totalCount
+          if (this.totalCount === 0) {
+            this.min = 0
+            this.max = 0
+          }
+        })
+      }
+    },
+    clear() {
+      for (const i in this.form) {
+        this.form[i] = ''
+      }
+    },
+    search() {
+      const arr = []
+      for (const i in this.form) {
+        if (this.form[i]) {
+          arr.push(i)
+        }
+      }
+      if (arr.length === 0) {
+        member({ type: this.ind + 1, page: 1 }).then(res => {
+          this.tableData2 = res.data.list
+          this.totalCount = res.data.pagination.totalCount
+        })
+        return
+      }
+      const obj = { type: 1, page: 1 }
+      arr.map(item => {
+        obj[item] = this.form[item]
+      })
+      for (const i in obj) {
+        if (typeof (obj[i]) === 'object') {
+          if (obj[i][0].getTime() > obj[i][1].getTime()) {
+            obj[i + 'max'] = new Date(obj[i][0].getTime()).toLocaleDateString()
+            obj[i + 'min'] = new Date(obj[i][1].getTime()).toLocaleDateString()
+          } else {
+            obj[i + 'max'] = new Date(obj[i][1].getTime()).toLocaleDateString()
+            obj[i + 'min'] = new Date(obj[i][0].getTime()).toLocaleDateString()
+          }
+        }
+      }
+      member(obj).then(res => {
+        this.tableData2 = res.data.list
+        this.totalCount = res.data.pagination.totalCount
+        this.min = this.totalCount < 10 ? 1 : this.min
+        this.max = this.totalCount < 10 ? 10 : this.max
       })
     }
   }
-
 }
 </script>
 <style lang="scss" scoped>
