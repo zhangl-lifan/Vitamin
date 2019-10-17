@@ -44,9 +44,16 @@
               </el-select>
           </div>
           <div class="floor">配送方式:
-              <el-select v-model="value1" multiple placeholder="请选择" style="width:230px">
+              <el-select
+                v-model="value"
+                multiple
+                filterable
+                allow-create
+                default-first-option
+                placeholder="请选择"
+                style="width:230px">
                 <el-option
-                  v-for="item in options"
+                  v-for="item in options2"
                   :key="item.value"
                   :label="item.label"
                   :value="item.value">
@@ -54,14 +61,19 @@
               </el-select>
           </div> 
           <div class="floor">店铺:
-              <el-select v-model="value1" multiple placeholder="请选择" style="width:230px">
+            <el-select v-model="value" placeholder="请选择" style="width:230px">
+              <el-option-group
+                v-for="group in options1"
+                :key="group.label"
+                :label="group.label">
                 <el-option
-                  v-for="item in options"
+                  v-for="item in group.options"
                   :key="item.value"
                   :label="item.label"
                   :value="item.value">
                 </el-option>
-              </el-select>
+              </el-option-group>
+            </el-select>
           </div>
           <div class="floor">
               <div class="block" style="width:1000px">
@@ -142,9 +154,42 @@
                     value: '选项5',
                     label: '北京烤鸭'
                 }],
+                options1: [{
+                  label: 'F1',
+                  options: [{
+                    value: 'Shanghai',
+                    label: '上海'
+                  }, {
+                    value: 'Beijing',
+                    label: '北京'
+                  }]
+                }, {
+                  label: 'F2',
+                  options: [{
+                    value: 'Chengdu',
+                    label: '成都'
+                  }, {
+                    value: 'Shenzhen',
+                    label: '深圳'
+                  }, {
+                    value: 'Guangzhou',
+                    label: '广州'
+                  }, {
+                    value: 'Dalian',
+                    label: '大连'
+                  }]
+                }],
+                options2: [{
+                  value: '送货上门',
+                  label: '送货上门'
+                }, {
+                  value: '门店自提',
+                  label: '门店自提'
+                }, {
+                  value: '自动充值',
+                  label: '自动充值'
+                }],
                 value: '',
-                value1: [],
-                value2: [],
                 pickerOptions: {
                   shortcuts: [{
                     text: '最近一周',
