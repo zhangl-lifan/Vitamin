@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-15 14:19:16
- * @LastEditTime: 2019-10-16 14:06:58
+ * @LastEditTime: 2019-10-17 11:29:59
  * @LastEditors: Please set LastEditors
  */
 import request from '@/utils/request'
@@ -28,3 +28,15 @@ export function searchset(data) {
     data
   })
 }
+
+export function clientdetail(data) {
+  // console.log('data',data);
+  data = qs.stringify(data)
+  return request({
+    url: '/member/member-info',
+    method: 'post',
+    baseURL: '/api',
+    data
+  })
+}
+

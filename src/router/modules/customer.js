@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-14 14:35:15
- * @LastEditTime: 2019-10-14 19:38:57
+ * @LastEditTime: 2019-10-17 11:53:35
  * @LastEditors: Please set LastEditors
  */
 /** When your routing table is too long, you can split it into small modules **/
@@ -24,6 +24,14 @@ const CustmerRouter = {
                 import('@/views/table/dynamic-table/index'),
     name: 'cumerMeage',
     meta: { title: '顾客管理' }
+
+  },
+  {
+
+    path: 'detail/:id',
+    component: () =>
+                import('@/views/table/dynamic-table/components/detail')
+
   },
   {
     path: 'inventory',
