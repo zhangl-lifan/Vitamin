@@ -140,6 +140,9 @@ export default {
       visible: false,
       isShow: false
     }
+  },
+  mounted() {
+    console.log(this.$refs.iconSize)
   }
 }
 </script>
@@ -350,13 +353,6 @@ export default {
   text-transform: none;
   vertical-align: -0.125em;
   text-rendering: optimizeLegibility;
-}
-
-.el-popover{
-  position: absolute;
-  left: 455px !important;
-  top:119px !important;
-  height: 350px !important;
 }
 
 .popper__arrow{

@@ -2,7 +2,7 @@ const html = `<div style="position: absolute; top: 0px; left: 0px; width: 100%;"
 <div>
   <div
     class="ant-popover ant-popover-placement-leftTop"
-    style="left: 32px; top: 0px; transform-origin: -4px 0px;"
+    style=" transform-origin: -4px 0px;"
   >
     <div class="ant-popover-content">
       <div class="ant-popover-arrow"></div>
@@ -11,7 +11,7 @@ const html = `<div style="position: absolute; top: 0px; left: 0px; width: 100%;"
           <div class="ant-popover-title">
             <div class="set-popover-title">
               <span>整体页面设置</span>
-              <span class="popover-close">
+              <span class="popover-close" ref="iconSize">
                 <i aria-label="图标: close" class="anticon anticon-close">
                   <svg
                     viewBox="64 64 896 896"
