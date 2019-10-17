@@ -4,9 +4,10 @@
  * @Author: sueRimn
  * @Date: 2019-10-14 11:00:00
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-16 10:01:06
+ * @LastEditTime: 2019-10-17 20:24:34
  */
 import request from '@/utils/request'
+import qs from 'qs'
 
 export function login(data) {
   return request({
@@ -43,16 +44,12 @@ export function getUserInfo(params) {
   })
 }
 
-export function getAdministratorList() {
+export function getAdministratorList(params) {
   return request({
     url: '/user/list',
     method: 'post',
     baseURL: '/api',
-    params: {
-      type: '1',
-      page: '1',
-      status: '0,1'
-    }
+    data: qs.stringify(params)
   })
 }
 export function getStoreList(params) {
@@ -61,5 +58,14 @@ export function getStoreList(params) {
     method: 'post',
     baseURL: '/api',
     params
+  })
+}
+
+export function getRoleDetail(params) {
+  return request({
+    url: '/role/role-desc-list',
+    method: 'post',
+    baseURL: '/api',
+    data: qs.stringify(params)
   })
 }

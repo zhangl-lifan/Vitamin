@@ -4,9 +4,9 @@
  * @Author: sueRimn
  * @Date: 2019-10-14 11:00:00
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-16 20:41:34
+ * @LastEditTime: 2019-10-17 20:33:44
  */
-import { login, logout, getInfo, getUserInfo, getAdministratorList, getStoreList } from '@/api/user'
+import { login, logout, getInfo, getUserInfo, getAdministratorList, getStoreList, getRoleDetail } from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 
@@ -19,7 +19,9 @@ const state = {
   userInfo: {},
   allObj: {},
   tabData: [],
-  pageMes: {}
+  pageMes: {},
+  inviteData: [],
+  roledata: {}
 }
 
 const mutations = {
@@ -47,6 +49,12 @@ const mutations = {
   SET_TABDATA: (state, { data, message }) => {
     state.tabData = data
     state.pageMes = message
+  },
+  Set_INIVEDATA: (state, payload) => {
+    state.inviteData = payload
+  },
+  SET_ROLEDATA: (state, payload) => {
+    state.roledata = payload
   }
 }
 
@@ -74,14 +82,21 @@ const actions = {
     })
     commit('SET_USER', result.data)
   },
-  async getAdministrators({ commit }) {
-    const result = await getAdministratorList()
-    console.log(result.data)
+  async getAdministrators({ commit }, params) {
+    const result = await getAdministratorList(params)
     commit('SET_TABDATA', { data: result.data.list, message: result.data.pagination })
   },
   async getStoreS({ commit }, params) {
     const result = await getStoreList(params)
     commit('SET_DATA', { list: result.data })
+  },
+  async getFutureData({ commit }, params) {
+    const result = await getAdministratorList(params)
+    commit('Set_INIVEDATA', { data: result.data })
+  },
+  async getRoleList({ commit }, params) {
+    const result = await getRoleDetail(params)
+    commit('SET_ROLEDATA', { data: result.data })
   },
   // get user info
   getInfo({ commit, state }) {

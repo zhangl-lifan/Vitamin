@@ -2,25 +2,24 @@
  * @Descripttion:
  * @version:
  * @Author: sueRimn
- * @Date: 2019-10-16 09:15:24
+ * @Date: 2019-10-17 11:38:35
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-17 22:36:21
+ * @LastEditTime: 2019-10-17 22:39:06
  -->
 <template>
   <div class="table-list">
-    <el-button round>+</el-button>
-    <el-table :data="tabData" style="width: 100%">
+    <el-table :data="inviteData.data.list" style="width: 100%">
       <el-table-column label="头像" width="80" align="center">
         <template slot-scope="scope">
           <img :src="scope.row.img" alt>
         </template>
       </el-table-column>
-      <el-table-column label="姓名" width="150">
+      <el-table-column label="姓名" width="200">
         <template slot-scope="scope">
           <span>{{ scope.row.user_name }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="手机号" width="150">
+      <el-table-column label="手机号" width="200">
         <template slot-scope="scope">
           <span>{{ scope.row.mobile }}</span>
         </template>
@@ -30,34 +29,32 @@
           <span>{{ scope.row.role }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="所属店铺" width="400">
+      <el-table-column label="所属店铺" width="180">
         <template slot-scope="scope">
           <div slot="reference" class="name-wrapper">
             <el-tag size="medium">{{ scope.row.store_name[0] }}</el-tag>
           </div>
         </template>
       </el-table-column>
-      <el-table-column label="顾客账号" width="130">
+      <el-table-column label="邀请者" width="150">
         <template slot-scope="scope">
-          <span v-if="scope.row.job_number===init">未关联</span>
-          <span v-else>{{ scope.row.job_number }}</span>
+          <span>{{ scope.row.create_user_name }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="状态" width="130">
+      <el-table-column label="发送时间" width="250">
         <template slot-scope="scope">
-          <span v-if="scope.row.status===1">正常</span>
-          <span v-else>不正常</span>
+          <span>{{ scope.row.created_strtotime }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="操作" width="130">
+      <el-table-column label="操作" width="100">
         <span class="jump">查看</span>
       </el-table-column>
     </el-table>
     <div class="page">
-      <span class="totalNum">共{{ pageMes.totalCount }}条</span>
+      <span class="totalNum">共{{ inviteData.data.pagination.totalCount }}条</span>
       <el-pagination
         layout="prev, pager, next"
-        :total="pageMes.totalCount"
+        :total="inviteData.data.pagination.totalCount"
         @current-change="handleChange"
       />
     </div>
@@ -66,37 +63,22 @@
 <script>
 import { mapState } from 'vuex'
 export default {
-  name: 'Table',
-  data() {
-    return {
-      init: ''
-    }
-  },
-  computed: mapState({
-    pageMes: state => state.user.pageMes,
-    tabData: state => state.user.tabData
-  }),
+  name: 'InivePage',
   props: {
     tabMes: Object
   },
-  mounted() {
-    this.initGetData()
-  },
   methods: {
     handleChange(e) {
-      this.tabMes.tabTable.page = `${e}`
+      this.tabMes.tabutureMes.page = `${e}`
       const params = {
-        ...this.tabMes.tabTable
+        ...this.tabMes.tabutureMes
       }
-      this.$store.dispatch('user/getAdministrators', params)
-    },
-    initGetData() {
-      const params = {
-        ...this.tabMes.tabTable
-      }
-      this.$store.dispatch('user/getAdministrators', params)
+      this.$store.dispatch('user/getFutureData', params)
     }
-  }
+  },
+  computed: mapState({
+    inviteData: state => state.user.inviteData
+  })
 }
 </script>
 <style lang="scss">
@@ -104,6 +86,7 @@ export default {
   height: auto;
   background: #fff;
   margin-top: 24px;
+
   .el-button {
     width: 40px;
     height: 40px;
@@ -111,14 +94,13 @@ export default {
     border-radius: 50%;
     color: #fff;
     font-size: 30px;
-    // margin: 0 0 24px 2%;
+    margin: 0 0 24px 5%;
     position: relative;
     top: 20px;
     font-weight: 200;
     cursor: pointer;
     display: flex;
     justify-content: center;
-
     span {
       position: relative;
       top: -6px;

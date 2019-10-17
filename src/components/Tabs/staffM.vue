@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-15 15:08:41
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-17 07:56:08
+ * @LastEditTime: 2019-10-17 22:33:53
  -->
 <template>
   <div>
@@ -13,23 +13,29 @@
       <el-tab-pane label="邀请中" name="yaoqing">邀请中</el-tab-pane>
       <el-tab-pane label="角色描述" name="roke">角色描述</el-tab-pane>
     </el-tabs>
-    <div class="form-container">
+    <div v-if="status===1" class="form-container">
       <From v-if="isrender" :list.sync="fromData" />
     </div>
-    <Table v-if="tabisrender" :tab-data="tabData" />
+    <Table v-if="tabisrender&&status===1" :tab-mes="tabMes" />
+    <InvitePage v-if="status===2" :tab-mes="tabMes" />
+    <RoleDetail v-if="status===3" :tab-mes="tabMes" />
   </div>
 </template>
 <script>
 import From from './component/init'
 import Table from './component/table'
+import InvitePage from './component/invitePage'
+import RoleDetail from './component/roleDetail'
 import { mapState } from 'vuex'
 export default {
   name: 'StaffM',
-  components: { From, Table },
+  components: { From, Table, InvitePage, RoleDetail },
+  props: {
+    tabMes: Object
+  },
   data() {
     return {
       activeName: 'staff',
-      status: 'staff',
       phone: '',
       store: '',
       role: '',
@@ -37,6 +43,7 @@ export default {
       iptStatus: '',
       isrender: false,
       tabisrender: false,
+      status: 1,
       fromData: [
         {
           name: '手机号',
@@ -97,12 +104,17 @@ export default {
     this.gaveData()
   },
   computed: mapState({
-    allObj: state => state.user.allObj,
-    tabData: state => state.user.tabData
+    allObj: state => state.user.allObj
   }),
   methods: {
     handleClick(tab, event) {
-      this.status = tab.paneName
+      if (tab.paneName === 'staff') {
+        this.status = 1
+      } else if (tab.paneName === 'yaoqing') {
+        this.status = 2
+      } else {
+        this.status = 3
+      }
     },
     gaveData() {
       setTimeout(() => {
@@ -113,7 +125,6 @@ export default {
       }, 1000)
     }
   }
-
 }
 </script>
 <style lang="scss">

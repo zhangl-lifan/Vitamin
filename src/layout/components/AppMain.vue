@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-15 08:42:53
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-16 19:30:23
+ * @LastEditTime: 2019-10-17 10:36:56
  -->
 <template>
   <section class="app-main">
@@ -68,7 +68,5 @@ export default {
   position: absolute;
   top: 100px;
   left: 0px;
-  overflow-y: scroll; /*显示y轴滚动条*/
-  // overflow-x: hidden; /*隐藏x轴滚动条*/
 }
 </style>
