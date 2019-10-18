@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-14 14:35:15
- * @LastEditTime: 2019-10-16 14:52:41
+ * @LastEditTime: 2019-10-17 13:33:06
  * @LastEditors: Please set LastEditors
  -->
 <template>
@@ -91,12 +91,12 @@
           <el-table-column
             prop="grade_code"
             label="手机号"
-            width="100"
+            width="180"
           />
           <el-table-column
             prop="cid"
             label="卡号"
-            width="100"
+            width="180"
           />
           <el-table-column
             prop="member_level"
@@ -116,12 +116,12 @@
           <el-table-column
             prop="lately_consume_tim"
             label="最近消费时间"
-            width="100"
+            width="180"
           />
           <el-table-column
             prop="lately_view_time"
             label="最近浏览时间"
-            width="100"
+            width="180"
           />
           <el-table-column
             fixed="right"
@@ -253,9 +253,15 @@ export default {
   methods: {
     change(num) {
       this.ind = num
+      member({ type: num + 1, page: 1 }).then(res => {
+        this.tableData2 = res.list
+        this.totalCount = res.pagination.totalCount
+        this.min = 1
+        this.max = 10
+      })
     },
     handleClick(row) {
-      console.log('row', row)
+      this.$router.replace('/custmer/detail/' + row.id)
     },
     handleCurrentChange(val) {
       this.min = (val - 1) * 10 + 1
