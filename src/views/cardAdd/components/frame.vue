@@ -31,7 +31,7 @@ export default {
   position: absolute;
   left: 622px !important;
   top: 119px !important;
-  height: 350px !important;
+  // height: 350px !important;
 }
 
 .ant-popover-placement-leftTop {

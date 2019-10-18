@@ -7,7 +7,7 @@
         <div v-for="(val) in item.children" :key="val.id" class="template-item">
           <!-- 弹框 -->
           <Propve :data="val" :option="'view'">
-            <div class="template-item-logo" @click="MarkBox(val)">
+            <div class="template-item-logo">
               <img :src="val.logo" alt class="logo">
             </div>
             <div class="template-item-text">{{ val.name }}</div>
@@ -29,7 +29,7 @@ export default {
   },
   props: {
     advertList: {
-      type: Object,
+      type: Array,
       default: null
     }
   },
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     MarkBox(item) {
-      console.log(item, 'item----')
+      // console.log(item, 'item----')
     }
   }
 }
@@ -132,6 +132,7 @@ export default {
   color: #666;
   font-size: 14px;
   margin-top: 5px;
+  text-align:center;
 }
 
 .page-manage

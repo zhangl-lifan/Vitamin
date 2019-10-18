@@ -1,7 +1,7 @@
 <template>
-  <el-popover trigger="click" placement="right" class="prp">
-    <div v-if="data.id!==5" class="popover-content">
-      <pic v-if="data.id===1" />
+  <el-popover trigger="click" placement="right">
+    <div v-if="data.id!==5" :class="data.id===1?'popover-contents':''">
+      <pic v-if="data.id===1" :property="data.property" />
       <titles v-if="data.id===2" />
       <auxiliary v-if="data.id===3" />
       <search v-if="data.id===4" />
@@ -34,11 +34,17 @@ export default {
   data() {
     return {}
   },
-  mounted() {
-    console.log(JSON.parse(JSON.stringify(this.data)), 'data-----')
-  }
+  mounted() {}
 }
 </script>
 <style scoped  lang="scss">
+.popoevr /deep/ .el-popover {
+  width: 100%;
+  // height: 800px !important;
+}
 
+.popover-contents {
+  width: 100%;
+  height: 800px !important;
+}
 </style>

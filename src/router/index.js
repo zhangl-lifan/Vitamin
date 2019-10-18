@@ -99,7 +99,8 @@ export const constantRoutes = [{
     name: 'Profile',
     meta: { title: 'Profile', icon: 'user', noCache: true }
   }]
-}, {
+},
+{
   path: '/cardAdd',
   component: Layout,
   redirect: '/cardAdd/Add',
