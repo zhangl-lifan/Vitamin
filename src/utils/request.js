@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-10-14 14:35:15
- * @LastEditTime: 2019-10-15 14:54:20
+ * @LastEditTime: 2019-10-18 10:49:05
  * @LastEditors: Please set LastEditors
  */
 import axios from 'axios'
@@ -62,7 +62,7 @@ service.interceptors.response.use(
     // if the custom code is not 20000, it is judged as an error.
     if (res.code !== 20000) {
       if (res.code === 200) {
-        return res.data
+        return res
       }
       Message({
         message: res.message || 'Error',
