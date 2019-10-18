@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-14 14:15:03
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-18 08:27:27
+ * @LastEditTime: 2019-10-18 09:20:37
  */
 /** When your routing table is too long, you can split it into small modules **/
 
@@ -25,14 +25,12 @@ const CustmerRouter = {
       import('@/views/table/dynamic-table/index'),
     name: 'cumerMeage',
     meta: { title: '顾客管理' }
-
   },
   {
 
     path: 'detail/:id',
     component: () =>
                 import('@/views/table/dynamic-table/components/detail')
-
   },
   {
     path: 'inventory',
