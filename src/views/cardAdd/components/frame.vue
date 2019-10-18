@@ -30,7 +30,6 @@ export default {
 .el-popover {
   position: absolute;
   left: 622px !important;
-  // left: calc(100% - #{$sideBarWidth}) !important;
   top: 119px !important;
   height: 350px !important;
 }
@@ -109,180 +108,182 @@ export default {
 }
 
 .set-form-item .ant-form-item {
-    margin-bottom: 16px;
-    font-weight: normal;
+  margin-bottom: 16px;
+  font-weight: normal;
 }
 
 .ant-form-item-label {
-    display: inline-block;
-    overflow: hidden;
-    line-height: 39.9999px;
-    white-space: nowrap;
-    text-align: right;
-    vertical-align: middle;
-    padding-right:7px;
-    font-weight: normal;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 39.9999px;
+  white-space: nowrap;
+  text-align: right;
+  vertical-align: middle;
+  padding-right: 7px;
+  font-weight: normal;
 }
 
 .ant-col-6 {
-    display: block;
-    box-sizing: border-box;
-    width: 25%;
-    flex: 0 auto;
-    float: left;
-
+  display: block;
+  box-sizing: border-box;
+  width: 25%;
+  flex: 0 auto;
+  float: left;
 }
 
 .ant-col {
-    position: relative;
-    min-height: 1px;
+  position: relative;
+  min-height: 1px;
 }
 
 // 左边的样式
 .ant-form-item label {
-    position: relative;
+  position: relative;
 }
 
-.ant-form-item-label>label {
-    color: rgba(0,0,0,.85);
+.ant-form-item-label > label {
+  color: rgba(0, 0, 0, 0.85);
 }
 
-.ant-form-item-label>label:after {
-    content: ":";
-    position: relative;
-    top: .5px;
-    margin: 8px 0 2px;
+.ant-form-item-label > label:after {
+  content: ":";
+  position: relative;
+  top: 0.5px;
+  margin: 8px 0 2px;
 }
 
-.set-form-item:last-child .ant-form-item-label>label:after {
-    content: "";
-    position: relative;
-    top: .5px;
-    margin: 8px 0 2px;
+.set-form-item:last-child .ant-form-item-label > label:after {
+  content: "";
+  position: relative;
+  top: 0.5px;
+  margin: 8px 0 2px;
 }
 
 // 右边的
 .ant-col-18 {
-    display: block;
-    box-sizing: border-box;
-    width: 75%;
-    flex: 0 auto;
-    float: left;
+  display: block;
+  box-sizing: border-box;
+  width: 75%;
+  flex: 0 auto;
+  float: left;
 }
 
 .ant-form-item-control {
-    position: relative;
-    line-height: 40px;
-    zoom: 1;
+  position: relative;
+  line-height: 40px;
+  zoom: 1;
 }
 
 .ant-form-item-children {
-    position: relative;
+  position: relative;
 }
 
 .ant-input {
-    box-sizing: border-box;
-    margin: 0;
-    font-variant: tabular-nums;
-    list-style: none;
-    font-feature-settings: "tnum";
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 32px;
-    padding: 4px 11px;
-    color: rgba(0,0,0,.65);
-    font-size: 14px;
-    line-height: 1.5;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #d9d9d9;
-    border-radius: 4px;
-    transition: all .3s;
+  box-sizing: border-box;
+  margin: 0;
+  font-variant: tabular-nums;
+  list-style: none;
+  font-feature-settings: "tnum";
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 32px;
+  padding: 4px 11px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  line-height: 1.5;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  transition: all 0.3s;
 }
 
 // URL
 .ant-input-group-wrapper {
-    display: inline-block;
-    width: 100%;
-    text-align: start;
-    vertical-align: top;
+  display: inline-block;
+  width: 100%;
+  text-align: start;
+  vertical-align: top;
 }
 
 .ant-input-group {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: rgba(0,0,0,.65);
-    font-size: 14px;
-    font-variant: tabular-nums;
-    line-height: 1.5;
-    list-style: none;
-    font-feature-settings: "tnum";
-    position: relative;
-    display: table;
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  font-feature-settings: "tnum";
+  position: relative;
+  display: table;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
 }
 
 .ant-input-group-addon:first-child {
-    border-right: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  border-right: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 
 .ant-input-group-addon {
-    position: relative;
-    padding: 0 11px;
-    color: rgba(0,0,0,.65);
-    font-weight: 400;
-    font-size: 14px;
-    text-align: center;
-    background-color: #fafafa;
-    border: 1px solid #d9d9d9;
-    border-radius: 4px;
-    transition: all .3s;
+  position: relative;
+  padding: 0 11px;
+  color: rgba(0, 0, 0, 0.65);
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center;
+  background-color: #fafafa;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  transition: all 0.3s;
 }
 
-.ant-input-group-addon, .ant-input-group-wrap {
-    width: 1px;
-    white-space: nowrap;
-    vertical-align: middle;
+.ant-input-group-addon,
+.ant-input-group-wrap {
+  width: 1px;
+  white-space: nowrap;
+  vertical-align: middle;
 }
 
-.ant-input-group-addon, .ant-input-group-wrap, .ant-input-group>.ant-input {
-    display: table-cell;
+.ant-input-group-addon,
+.ant-input-group-wrap,
+.ant-input-group > .ant-input {
+  display: table-cell;
 }
 
 .ant-input-group .ant-input {
-    float: left;
-    width: 100%;
-    margin-bottom: 0;
-    text-align: inherit;
+  float: left;
+  width: 100%;
+  margin-bottom: 0;
+  text-align: inherit;
 }
 
 .color-light {
-    color: #3ec6b6;
+  color: #3ec6b6;
 }
 
 .ant-checkbox {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    color: rgba(0,0,0,.65);
-    font-size: 14px;
-    font-variant: tabular-nums;
-    list-style: none;
-    font-feature-settings: "tnum";
-    position: relative;
-    top: -.09em;
-    display: inline-block;
-    line-height: 1;
-    white-space: nowrap;
-    vertical-align: middle;
-    outline: none;
-    cursor: pointer;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  font-variant: tabular-nums;
+  list-style: none;
+  font-feature-settings: "tnum";
+  position: relative;
+  top: -0.09em;
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  vertical-align: middle;
+  outline: none;
+  cursor: pointer;
 }
 
 // .ant-checkbox  .ant-checkbox-input {
@@ -298,22 +299,25 @@ export default {
 //     opacity: 1;
 // }
 
-.ant-form-item-control:after, .ant-form-item-control:before {
-    display: table;
-    content: "";
+.ant-form-item-control:after,
+.ant-form-item-control:before {
+  display: table;
+  content: "";
 }
 
 .ant-row:after {
-    clear: both;
+  clear: both;
 }
 
-.ant-row:after, .ant-row:before {
-    display: table;
-    content: "";
+.ant-row:after,
+.ant-row:before {
+  display: table;
+  content: "";
 }
 
-*, :after, :before {
-    box-sizing: border-box;
+*,
+:after,
+:before {
+  box-sizing: border-box;
 }
-
 </style>

@@ -1,126 +1,18 @@
 <template>
-  <div style="position: absolute; top: 0px; left: 0px; width: 100%;">
-    <div>
-      <div
-        class="ant-popover ant-popover-placement-rightTop"
-        style="left: 32px; top: 0px; transform-origin: -4px 0px;"
-      >
-        <div class="ant-popover-content">
-          <div class="ant-popover-arrow" />
-          <div class="ant-popover-inner" role="tooltip">
-            <div>
-              <div class="ant-popover-title">
-                <div class="set-popover-title">
-                  <span>整体页面设置</span>
-                  <span class="popover-close">
-                    <i aria-label="图标: close" class="anticon anticon-close">
-                      <svg
-                        viewBox="64 64 896 896"
-                        focusable="false"
-                        class
-                        data-icon="close"
-                        width="1em"
-                        height="1em"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 0 0 203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                        />
-                      </svg>
-                    </i>
-                  </span>
-                </div>
-              </div>
-              <div class="ant-popover-inner-content">
-                <div class="template-set-cont">
-                  <div class="template-set-form">
-                    <div class="set-form-item">
-                      <div class="ant-row ant-form-item">
-                        <div class="ant-col ant-col-6 ant-form-item-label">
-                          <label class title="页面名称">页面名称</label>
-                        </div>
-                        <div class="ant-col ant-col-18 ant-form-item-control-wrapper">
-                          <div class="ant-form-item-control">
-                            <span class="ant-form-item-children">
-                              <input type="text" class="ant-input" value="首页">
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="set-form-item">
-                      <div class="ant-row ant-form-item">
-                        <div class="ant-col ant-col-6 ant-form-item-label">
-                          <label class title="URL">URL</label>
-                        </div>
-                        <div class="ant-col ant-col-18 ant-form-item-control-wrapper">
-                          <div class="ant-form-item-control">
-                            <span class="ant-form-item-children">
-                              <span class="ant-input-group-wrapper">
-                                <span class="ant-input-wrapper ant-input-group">
-                                  <span class="ant-input-group-addon">/page/</span>
-                                  <input type="text" class="ant-input" value="home">
-                                </span>
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="set-form-item">
-                      <div class="ant-row ant-form-item">
-                        <div class="ant-col ant-col-6 ant-form-item-label">
-                          <label class title="页面背景颜色">页面背景颜色</label>
-                        </div>
-                        <div class="ant-col ant-col-18 ant-form-item-control-wrapper">
-                          <div class="ant-form-item-control">
-                            <span class="ant-form-item-children">
-                              <div>
-                                <div
-                                  style="padding: 5px; background: rgb(255, 255, 255); border-radius: 1px; box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 0px 1px; display: inline-block; cursor: pointer;"
-                                >
-                                  <div
-                                    style="width: 62px; height: 22px; border-radius: 2px; background: rgb(255, 255, 255); position: relative;"
-                                  />
-                                  <span
-                                    class="color-light"
-                                    style="position: absolute; right: -120px; top: 0px;"
-                                  >重置</span>
-                                </div>
-                              </div>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="set-form-item">
-                      <div class="ant-row ant-form-item">
-                        <div class="ant-col ant-col-6 ant-form-item-label">
-                          <label class="ant-form-item-no-colon" title>
-                            <span style="opacity: 0;">设置主页</span>
-                          </label>
-                        </div>
-                        <div class="ant-col ant-col-18 ant-form-item-control-wrapper">
-                          <div class="ant-form-item-control">
-                            <span class="ant-form-item-children">
-                              <label class="ant-checkbox-wrapper">
-                                <span class="ant-checkbox">
-                                  <input type="checkbox" class="ant-checkbox-input" value>
-                                  <span class="ant-checkbox-inner" />
-                                </span>
-                                <span>设为主页</span>
-                              </label>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+  <div class="page-template bg-white">
+    <h3 style="border-bottom: 1px solid rgb(232, 232, 232);">模块</h3>
+    <div v-for="(item,index) in advertList" :key="index" class="template-container">
+      <p class="type-title">{{ item.type_name }}</p>
+      <div class="type-cont">
+        <div v-for="(val) in item.children" :key="val.id" class="template-item">
+          <!-- 弹框 -->
+          <Propve :data="val" :option="'view'">
+            <div class="template-item-logo" @click="MarkBox(val)">
+              <img :src="val.logo" alt class="logo">
             </div>
-          </div>
+            <div class="template-item-text">{{ val.name }}</div>
+          </Propve>
+          <!--  -->
         </div>
       </div>
     </div>
@@ -128,11 +20,140 @@
 </template>
 
 <script>
+import Propve from '@/components/propve'
+
 export default {
+  name: 'Advert',
+  components: {
+    Propve
+  },
+  props: {
+    advertList: {
+      type: Object,
+      default: null
+    }
+  },
   data() {
     return {}
+  },
+  methods: {
+    MarkBox(item) {
+      console.log(item, 'item----')
+    }
   }
 }
 </script>
 <style scoped  lang="scss">
+.page-template {
+  width: 256px;
+  min-height: 700px;
+  position: relative;
+}
+
+.page-template .template-container .type-cont .template-item .el-popover {
+  width: 456px;
+  position: absolute;
+  left: 700px !important;
+  top: 119px !important;
+  height: 350px !important;
+}
+
+.bg-white {
+  background: #fff;
+}
+
+.page-manage .page-template h3 {
+  height: 40px;
+  margin: 0;
+  line-height: 40px;
+  padding-left: 16px;
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.page-manage .page-template .template-container {
+  width: 100%;
+  padding: 10px 16px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.page-manage .page-template .template-container .type-title {
+  height: 30px;
+  line-height: 30px;
+  margin: 0;
+}
+
+.page-manage .page-template .template-container .type-cont {
+  width: 100%;
+  margin-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.page-manage .page-template .template-container .template-item {
+  width: 100px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.page-manage
+  .page-template
+  .template-container
+  .template-item
+  .template-item-logo {
+  height: 100px;
+  padding: 0 5px;
+  border: 1px dashed #e8e8e8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-manage
+  .page-template
+  .template-container
+  .template-item
+  .template-item-logo
+  .logo {
+  width: 100%;
+  height: auto;
+  background: hsla(0, 0%, 84.3%, 0.5);
+
+  img {
+    border-style: none;
+  }
+  img {
+    vertical-align: middle;
+  }
+}
+
+.template-item-text {
+  color: #666;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.page-manage
+  .page-template
+  .template-container
+  .template-item
+  .template-item-logo:active {
+  background: rgba(62, 198, 182, 0.1);
+  border: 1px dashed #3ec6b6;
+}
+
+.page-manage
+  .page-template
+  .template-container
+  .template-item.check
+  .template-item-logo,
+.page-manage
+  .page-template
+  .template-container
+  .template-item
+  .template-item-logo:hover {
+  background: rgba(62, 198, 182, 0.1);
+  border: 1px dashed #3ec6b6;
+}
 </style>

@@ -4,69 +4,8 @@
       <div class="ant-spin-nested-loading">
         <div class="ant-spin-container">
           <div class="page-manage">
-            <div class="page-template bg-white">
-              <h3 style="border-bottom: 1px solid rgb(232, 232, 232);">模块</h3>
-              <div class="template-container">
-                <p class="type-title">图文类</p>
-                <div class="type-cont">
-                  <div class="template-item">
-                    <div class="template-item-logo">
-                      <img
-                        src="https://img.weitaming.com/file/20190627115347_974851/pic_ad_big.png"
-                        alt
-                        class="logo"
-                      >
-                    </div>
-                    <div class="template-item-text">广告图</div>
-                  </div>
-                </div>
-              </div>
-              <div class="template-container">
-                <p class="type-title">经典模板</p>
-                <div class="type-cont">
-                  <div class="template-item">
-                    <div class="template-item-logo">
-                      <img
-                        src="https://img.weitaming.com/file/20190627125255_516869/title.png"
-                        alt
-                        class="logo"
-                      >
-                    </div>
-                    <div class="template-item-text">标题</div>
-                  </div>
-                  <div class="template-item">
-                    <div class="template-item-logo">
-                      <img
-                        src="https://img.weitaming.com/file/20190627125339_960552/hr.png"
-                        alt
-                        class="logo"
-                      >
-                    </div>
-                    <div class="template-item-text">辅助线</div>
-                  </div>
-                  <div class="template-item">
-                    <div class="template-item-logo">
-                      <img
-                        src="https://img.weitaming.com/file/20190627125213_354175/search.png"
-                        alt
-                        class="logo"
-                      >
-                    </div>
-                    <div class="template-item-text">搜索</div>
-                  </div>
-                  <div class="template-item">
-                    <div class="template-item-logo">
-                      <img
-                        src="https://img.weitaming.com/file/20190627125339_960552/hr.png"
-                        alt
-                        class="logo"
-                      >
-                    </div>
-                    <div class="template-item-text">头条</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- 左边的盒子<广告、经典> -->
+            <Advert :advert-list="advertList" />
             <div class="page-config bg-white">
               <div class="config-global">
                 <Frame />
@@ -131,18 +70,25 @@
 <script>
 
 import Frame from './components/frame'
+import { FrameList } from '@/api/vitamin/index'
+import Advert from './components/advert'
+
 export default {
   components: {
-    Frame
+    Frame,
+    Advert
   },
   data() {
     return {
-      visible: false,
-      isShow: false
+      visible: true,
+      isShow: false,
+      advertList: []
     }
   },
   mounted() {
-    console.log(this.$refs.iconSize)
+    FrameList().then(res => {
+      this.advertList = res.data.list
+    })
   }
 }
 </script>
@@ -184,86 +130,6 @@ export default {
 .page-manage {
   width: 100%;
   display: flex;
-}
-
-.page-manage .page-template {
-  width: 256px;
-  min-height: 700px;
-}
-
-.bg-white {
-  background: #fff;
-}
-
-.page-manage .page-template h3 {
-  height: 40px;
-  margin: 0;
-  line-height: 40px;
-  padding-left: 16px;
-  font-weight: normal;
-  font-size: 16px;
-}
-
-.page-manage .page-template .template-container {
-  width: 100%;
-  padding: 10px 16px;
-  border-bottom: 1px solid #e8e8e8;
-}
-
-.page-manage .page-template .template-container .type-title {
-  height: 30px;
-  line-height: 30px;
-  margin: 0;
-}
-
-.page-manage .page-template .template-container .type-cont {
-  width: 100%;
-  margin-top: 16px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.page-manage .page-template .template-container .template-item {
-  width: 100px;
-  margin-bottom: 16px;
-}
-
-.page-manage
-  .page-template
-  .template-container
-  .template-item
-  .template-item-logo {
-  height: 100px;
-  padding: 0 5px;
-  border: 1px dashed #e8e8e8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.page-manage
-  .page-template
-  .template-container
-  .template-item
-  .template-item-logo
-  .logo {
-  width: 100%;
-  height: auto;
-  background: hsla(0, 0%, 84.3%, 0.5);
-
-  img {
-    border-style: none;
-  }
-  img {
-    vertical-align: middle;
-  }
-}
-
-.template-item-text {
-  color: #666;
-  font-size: 14px;
-  margin-top: 5px;
 }
 
 .page-manage .page-config {
