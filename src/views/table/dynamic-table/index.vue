@@ -241,6 +241,7 @@ export default {
   },
   mounted() {
     member({ type: 1, page: 1 }).then(res => {
+      console.log(res, 'res-----')
       this.tableData2 = res.data.list
       this.totalCount = res.data.pagination.totalCount
       this.min = 1

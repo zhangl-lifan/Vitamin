@@ -22,3 +22,13 @@ export function deleteList(params) {
     data: data
   })
 }
+
+// /page-manage/component-list
+export function FrameList() {
+  return request({
+    url: '/page-manage/component-list',
+    methods: 'post',
+    baseURL: '/api'
+    // data: data
+  })
+}
