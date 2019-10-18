@@ -4,7 +4,7 @@
           <div class="floor">款号:<el-input v-model="input" placeholder="请输入" style="width:230px" size="medium"></el-input></div>
           <div class="floor">商品名称:<el-input v-model="input" placeholder="请输入" style="width:230px" size="medium"></el-input></div>
           <div class="floor">分类:
-             <el-select v-model="value" clearable placeholder="请选择" style="width:230px">
+              <el-select v-model="value" clearable placeholder="请选择" style="width:230px">
                 <el-option
                   v-for="item in options"
                   :key="item.value"
@@ -24,7 +24,7 @@
               </el-select>
           </div> 
           <div class="floor">商品来源:
-             <el-select v-model="value" clearable placeholder="请选择" style="width:230px">
+              <el-select v-model="value" clearable placeholder="请选择" style="width:230px">
                 <el-option
                   v-for="item in options"
                   :key="item.value"

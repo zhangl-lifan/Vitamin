@@ -1,32 +1,18 @@
 <template>
       <div class="inventorybox">
         <div class="title">
-        <h2>商品管理</h2>
+        <h2>库存管理</h2>
         <div class="nac">
             <span><i class="el-icon-upload2"></i>批量上传</span>
-            <span><i class="el-icon-download"></i>批量导出</span>
-            <span><i class="el-icon-edit-outline"></i>查看已生成报表</span>
         </div>
         </div>
         <div class="from">
             <el-tabs v-model="activeName" @tab-click="handleClick">
             <el-tab-pane label="销售中" name="first">
-                <ProductFirst></ProductFirst>
+                <inventoryFirst></inventoryFirst>
             </el-tab-pane>
-            <el-tab-pane label="仓库中" name="second">   
-                <ProductSecond></ProductSecond>
-            </el-tab-pane>
-            <el-tab-pane label="草稿箱" name="third">
-                <ProductThird></ProductThird>
-            </el-tab-pane>
-            <el-tab-pane label="待审核(74)" name="fourth">
-                <ProductFourth></ProductFourth>
-            </el-tab-pane>
-            <el-tab-pane label="未通过审核" name="six">
-                <ProductSix></ProductSix>
-            </el-tab-pane>
-            <el-tab-pane label="商品库" name="four">   
-                <ProductFour></ProductFour>
+            <el-tab-pane label="已售馨(7)" name="second">   
+                <inventorySecond></inventorySecond>
             </el-tab-pane>
             </el-tabs>   
         </div>
@@ -35,12 +21,8 @@
 
 <script>
 import Sortable from 'sortablejs'
-import ProductFirst from "@/components/ProductFirst"
-import ProductSecond from "@/components/ProductSecond"
-import ProductThird from "@/components/ProductThird"
-import ProductFourth from "@/components/ProductFourth"
-import ProductSix from "@/components/ProductSix"
-import ProductFour from "@/components/ProductFour"
+import InventoryFirst from "@/components/InventoryFirst"
+import InventorySecond from "@/components/InventorySecond"
 export default {
   name: 'DragTable',
   data() {
@@ -49,12 +31,8 @@ export default {
     }
   },
   components:{
-    ProductFirst,
-    ProductSecond,
-    ProductThird,
-    ProductFourth,
-    ProductSix,
-    ProductFour
+    InventoryFirst,
+    InventorySecond
   },
    methods: {
       handleClick(tab, event) {
@@ -65,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .productmentbox{
+  .inventorybox{
     width: 100%;
     height: 100%;
   }
