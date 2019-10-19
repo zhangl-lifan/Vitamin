@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-16 09:15:24
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-17 22:36:21
+ * @LastEditTime: 2019-10-19 08:40:03
  -->
 <template>
   <div class="table-list">
@@ -50,7 +50,9 @@
         </template>
       </el-table-column>
       <el-table-column label="操作" width="130">
-        <span class="jump">查看</span>
+        <template slot-scope="scope">
+          <span class="jump" @click="JumpPage(scope.row.user_id)">查看</span>
+        </template>
       </el-table-column>
     </el-table>
     <div class="page">
@@ -67,6 +69,9 @@
 import { mapState } from 'vuex'
 export default {
   name: 'Table',
+  props: {
+    tabMes: Object
+  },
   data() {
     return {
       init: ''
@@ -76,9 +81,6 @@ export default {
     pageMes: state => state.user.pageMes,
     tabData: state => state.user.tabData
   }),
-  props: {
-    tabMes: Object
-  },
   mounted() {
     this.initGetData()
   },
@@ -95,6 +97,14 @@ export default {
         ...this.tabMes.tabTable
       }
       this.$store.dispatch('user/getAdministrators', params)
+    },
+    JumpPage(id) {
+      this.$router.push({
+        path: '/teamDetail',
+        query: {
+          id
+        }
+      })
     }
   }
 }

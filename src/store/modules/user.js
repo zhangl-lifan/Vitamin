@@ -4,12 +4,67 @@
  * @Author: sueRimn
  * @Date: 2019-10-14 11:00:00
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-17 20:33:44
+ * @LastEditTime: 2019-10-18 19:28:34
  */
-import { login, logout, getInfo, getUserInfo, getAdministratorList, getStoreList, getRoleDetail } from '@/api/user'
+import {
+  login,
+  logout,
+  getInfo,
+  getUserInfo,
+  getAdministratorList,
+  getStoreList,
+  getRoleDetail,
+  getInfoData,
+  patience
+} from '@/api/user'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import router, { resetRouter } from '@/router'
 
+function idCheck(userInfo, selfInfo) {
+  let str = ''
+  if (userInfo.unique_id === selfInfo.user_id) {
+    str = ''
+  } else if (selfInfo.role === '超级管理员') {
+    str = ''
+  } else {
+    str = '账号设置'
+  }
+  return str
+}
+function check(userInfo, selfInfo) {
+  let str = ''
+  if (userInfo.unique_id === selfInfo.user_id) {
+    str = '操作历史'
+  } else if (selfInfo.role === '超级管理员') {
+    str = ''
+  } else {
+    str = '操作历史'
+  }
+  return str
+}
+function backObj(userInfo, selfInfo, fullList) {
+  // console.log(userInfo, selfInfo, fullList);
+  console.log('sfasfasf', userInfo.unique_id, selfInfo.user_id)
+  const arr = [
+    {
+      name: '基本信息',
+      id: 656,
+      data: {
+        ...selfInfo
+      }
+    },
+    {
+      name: idCheck(userInfo, selfInfo),
+      id: 66
+    },
+    {
+      name: check(userInfo, selfInfo),
+      id: 52,
+      data: fullList
+    }
+  ]
+  return arr
+}
 const state = {
   token: getToken(),
   name: '',
@@ -21,7 +76,9 @@ const state = {
   tabData: [],
   pageMes: {},
   inviteData: [],
-  roledata: {}
+  roledata: {},
+  selfInfo: {},
+  fullData: []
 }
 
 const mutations = {
@@ -55,6 +112,13 @@ const mutations = {
   },
   SET_ROLEDATA: (state, payload) => {
     state.roledata = payload
+  },
+  SET_USERINFO: (state, payload) => {
+    state.selfInfo = payload
+  },
+  SET_FULLDATA: (state, payload) => {
+    state.fullData = backObj(state.userInfo, state.selfInfo.data, payload.data)
+    console.log(state.fullData)
   }
 }
 
@@ -98,12 +162,19 @@ const actions = {
     const result = await getRoleDetail(params)
     commit('SET_ROLEDATA', { data: result.data })
   },
+  async getUserInfo({ commit }, params) {
+    const result = await getInfoData(params)
+    commit('SET_USERINFO', { data: result.data })
+  },
+  async patienceList({ commit }, params) {
+    const result = await patience(params)
+    commit('SET_FULLDATA', { data: result.data.list })
+  },
   // get user info
   getInfo({ commit, state }) {
     return new Promise((resolve, reject) => {
       getInfo(state.token).then(response => {
         const { data } = response
-
         if (!data) {
           reject('Verification failed, please Login again.')
         }

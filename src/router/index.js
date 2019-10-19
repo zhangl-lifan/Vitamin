@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-09 10:49:46
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-16 08:30:31
+ * @LastEditTime: 2019-10-18 15:34:58
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -32,25 +32,25 @@ export const constantRoutes = [{
   children: [{
     path: '/redirect/:path*',
     component: () =>
-                import('@/views/redirect/index')
+      import('@/views/redirect/index')
   }]
 },
 {
   path: '/login',
   component: () =>
-            import('@/views/login/index'),
+    import('@/views/login/index'),
   hidden: true
 },
 {
   path: '/auth-redirect',
   component: () =>
-            import('@/views/login/auth-redirect'),
+    import('@/views/login/auth-redirect'),
   hidden: true
 },
 {
   path: '/404',
   component: () =>
-            import('@/views/error-page/404'),
+    import('@/views/error-page/404'),
   hidden: true
 },
 // {
@@ -61,7 +61,7 @@ export const constantRoutes = [{
 {
   path: '/401',
   component: () =>
-            import('@/views/error-page/401'),
+    import('@/views/error-page/401'),
   hidden: true
 },
 {
@@ -71,7 +71,7 @@ export const constantRoutes = [{
   children: [{
     path: 'home',
     component: () =>
-                import('@/views/dashboard/index'),
+      import('@/views/dashboard/index'),
     name: 'Home',
     meta: { title: '首页', icon: 'home', affix: true }
   }]
@@ -82,7 +82,7 @@ export const constantRoutes = [{
   children: [{
     path: 'general',
     component: () =>
-                import('@/views/documentation/index'),
+      import('@/views/documentation/index'),
     name: 'General',
     meta: { title: '概括', icon: 'documentation', affix: true }
   }]
@@ -95,7 +95,7 @@ export const constantRoutes = [{
   children: [{
     path: 'index',
     component: () =>
-                import('@/views/profile/index'),
+      import('@/views/profile/index'),
     name: 'Profile',
     meta: { title: 'Profile', icon: 'user', noCache: true }
   }]
@@ -106,7 +106,19 @@ export const constantRoutes = [{
   children: [{
     path: 'Add',
     component: () =>
-                import('@/views/cardAdd/index')
+      import('@/views/cardAdd/index')
+  }]
+},
+{
+  path: '/teamDetail',
+  component: Layout,
+  redirect: '/teamDetail/index',
+  hidden: true,
+  name: 'teamDetail',
+  children: [{
+    path: 'index',
+    component: () =>
+      import('@/views/teamDetail/index')
   }]
 }
 ]

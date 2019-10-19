@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-15 15:08:41
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-17 22:51:37
+ * @LastEditTime: 2019-10-18 10:30:22
  -->
 <template>
   <div class="tabs">
@@ -13,7 +13,7 @@
 </template>
 <script>
 import StaffModule from '@/components/Tabs/staffM'
-// asfsf
+
 export default {
   name: 'Shopping',
   components: { StaffModule },

@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-15 15:08:41
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-18 07:34:00
+ * @LastEditTime: 2019-10-18 09:26:00
  -->
 <template>
   <div class="tabs">
@@ -13,22 +13,25 @@
 </template>
 <script>
 import StaffModule from '@/components/Tabs/staffM'
-// 5as4f5asfas5f
 export default {
   components: { StaffModule },
   data() {
     return {
+      // 每个请求的参数
       tabMes: {
+        // 邀请人
         tabutureMes: {
           type: '1',
           status: '3',
           page: '1'
         },
+        // 角色描述
         tabRoleMes: {
           mall_id: '61500',
           type: '1',
           page: '1'
         },
+        // 员工管理
         tabTable: {
           type: '1',
           page: '1',

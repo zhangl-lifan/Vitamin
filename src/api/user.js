@@ -4,7 +4,7 @@
  * @Author: sueRimn
  * @Date: 2019-10-14 11:00:00
  * @LastEditors: sueRimn
- * @LastEditTime: 2019-10-17 20:24:34
+ * @LastEditTime: 2019-10-18 16:23:17
  */
 import request from '@/utils/request'
 import qs from 'qs'
@@ -64,6 +64,25 @@ export function getStoreList(params) {
 export function getRoleDetail(params) {
   return request({
     url: '/role/role-desc-list',
+    method: 'post',
+    baseURL: '/api',
+    data: qs.stringify(params)
+  })
+}
+
+export function getInfoData(params) {
+  console.log(params)
+  return request({
+    url: '/user/user-detail',
+    method: 'post',
+    baseURL: '/api',
+    data: qs.stringify(params)
+  })
+}
+
+export function patience(params) {
+  return request({
+    url: '/user/history-list',
     method: 'post',
     baseURL: '/api',
     data: qs.stringify(params)
